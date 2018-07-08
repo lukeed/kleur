@@ -1,0 +1,18 @@
+{
+  "name": "kleur",
+  "version": "0.0.0",
+  "repository": "lukeed/kleur",
+  "description": "WIP",
+  "license": "MIT",
+  "files": [
+    "*.js"
+  ],
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "lukeed.com"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
