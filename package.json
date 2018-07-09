@@ -13,6 +13,6 @@
     "url": "lukeed.com"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   }
 }
