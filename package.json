@@ -12,7 +12,14 @@
     "email": "luke.edwards05@gmail.com",
     "url": "lukeed.com"
   },
+  "scripts": {
+    "test": "tape test/*.js | tap-spec"
+  },
   "engines": {
     "node": ">=6"
+  },
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
   }
 }
