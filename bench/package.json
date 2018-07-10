@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "ansi": "^0.3.1",
+    "ansi-colors": "^2.0.2",
+    "benchmark": "^2.1.4",
+    "chalk": "^2.4.0",
+    "clorox": "^1.0.3"
+  }
+}
