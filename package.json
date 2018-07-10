@@ -18,6 +18,14 @@
   "engines": {
     "node": ">=6"
   },
+  "keywords": [
+    "ansi",
+    "cli",
+    "color",
+    "colors",
+    "console",
+    "terminal"
+  ],
   "devDependencies": {
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
