@@ -154,32 +154,32 @@ The methods below are grouped by type for legbility purposes only. They each can
 ### Load time
 
 ```
-ansi-colors: 1.172ms
-chalk: 11.799ms
-clorox: 0.922ms
-kleur: 0.694ms
+ansi-colors: 1.150ms
+chalk: 8.440ms
+clorox: 0.471ms
+kleur: 0.611ms
 ```
 
 ### Performance
 
 ```
 # All Colors
-  ansi-colors x 60,235 ops/sec ±0.57% (93 runs sampled)
-  chalk x 7,125 ops/sec ±4.23% (69 runs sampled)
-  clorox x 1,175 ops/sec ±3.95% (71 runs sampled)
-  kleur x 74,307 ops/sec ±0.40% (96 runs sampled)
+  ansi-colors x 60,646 ops/sec ±0.49% (96 runs sampled)
+  chalk x 7,228 ops/sec ±3.25% (73 runs sampled)
+  clorox x 86,631 ops/sec ±0.59% (94 runs sampled)
+  kleur x 95,595 ops/sec ±0.24% (96 runs sampled)
 
 # Stacked colors
-  ansi-colors x 13,547 ops/sec ±0.15% (97 runs sampled)
-  chalk x 1,631 ops/sec ±4.83% (72 runs sampled)
-  clorox x 454 ops/sec ±2.43% (40 runs sampled)
-  kleur x 21,825 ops/sec ±0.31% (94 runs sampled)
+  ansi-colors x 13,576 ops/sec ±0.42% (93 runs sampled)
+  chalk x 1,669 ops/sec ±4.56% (71 runs sampled)
+  clorox x 26,166 ops/sec ±1.44% (91 runs sampled)
+  kleur x 28,674 ops/sec ±0.29% (93 runs sampled)
 
 # Nested colors
-  ansi-colors x 27,553 ops/sec ±0.45% (93 runs sampled)
-  chalk x 3,445 ops/sec ±4.31% (69 runs sampled)
-  clorox x 552 ops/sec ±2.79% (45 runs sampled)
-  kleur x 32,405 ops/sec ±0.36% (92 runs sampled)
+  ansi-colors x 28,712 ops/sec ±0.60% (96 runs sampled)
+  chalk x 3,446 ops/sec ±4.59% (69 runs sampled)
+  Clorox x 40,821 ops/sec ±1.90% (94 runs sampled)
+  kleur x 43,242 ops/sec ±0.17% (97 runs sampled)
 ```
 
 
