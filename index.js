@@ -12,9 +12,7 @@ function print() {
 	let i=0, tmp, arr=this.keys, isMulti=!!~out.indexOf('\n');
 	for (; i < arr.length; i++) {
 		tmp = CODES[arr[i]]; // [x1, x2, rgx]
-		if (out.indexOf(tmp[0]) !== 0 || out.slice(-tmp[1].length) !== tmp[1]) {
-			out = tmp[0] + out.replace(tmp[2], tmp[0]) + tmp[1];
-		}
+		out = tmp[0] + out.replace(tmp[2], tmp[0]) + tmp[1];
 		isMulti && (out = out.replace(/(\r?\n)/g, `${tmp[1]}$1${tmp[0]}`));
 	}
 
@@ -22,9 +20,9 @@ function print() {
 }
 
 function wrap(keys) {
-	let fn = (...args) => print.apply(fn, args);
-	Object.setPrototypeOf(fn, $);
-	fn.keys = keys;
+	let ctx = {};
+	let fn = Object.setPrototypeOf(print.bind(ctx), $);
+	ctx.keys = fn.keys = keys;
 	return fn;
 }
 
