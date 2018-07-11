@@ -7,7 +7,7 @@ const chalk = require('chalk');
 console.timeEnd('chalk');
 
 console.time('clorox');
-const clorox = require('clorox');
+const { Clorox } = require('clorox');
 console.timeEnd('clorox');
 
 console.time('kleur');
