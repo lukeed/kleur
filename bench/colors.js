@@ -65,7 +65,7 @@ bench('All Colors')
     names.forEach(name => chalk[name]('foo'));
   })
   .add('clorox', () => {
-    names.forEach(name => Clorox[name]('foo').toString());
+    names.forEach(name => Clorox[name]('foo'));
   })
   .add('kleur', () => {
     names.forEach(name => kleur[name]('foo'));
@@ -80,7 +80,7 @@ bench('Stacked colors')
     names.forEach(name => chalk[name].bold.underline.italic('foo'));
   })
   .add('clorox', () => {
-    names.forEach(name => Clorox[name].bold.underline.italic('foo').toString());
+    names.forEach(name => Clorox[name].bold.underline.italic('foo'));
   })
   .add('kleur', () => {
     names.forEach(name => kleur[name].bold.underline.italic('foo'));
@@ -90,7 +90,7 @@ bench('Stacked colors')
 bench('Nested colors')
   .add('ansi-colors', () => fixture(color))
   .add('chalk', () => fixture(chalk))
-  .add('clorox', () => fixture(Clorox).toString())
+  .add('clorox', () => fixture(Clorox))
   .add('kleur', () => fixture(kleur))
   .run();
 
