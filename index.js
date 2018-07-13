@@ -1,11 +1,12 @@
-const { format } = require('util');
+'use strict';
+const util = require('util');
 const CODES = require('./codes');
 
 const $ = { enabled:true };
 const RGX = /\x1b\[[0-9]+m/ig;
 
 function print() {
-	let out = format.apply(null, arguments);
+	let out = util.format.apply(null, arguments);
 	if (!$.enabled || out.trim().length == 0) return out;
 
 	let i=0, tmp, arr=this.keys, isMulti=!!~out.indexOf('\n');
@@ -19,13 +20,13 @@ function print() {
 }
 
 function wrap(keys) {
-	let ctx = {};
-	let fn = Object.setPrototypeOf(print.bind(ctx), $);
+	const ctx = {};
+	const fn = Object.setPrototypeOf(print.bind(ctx), $);
 	ctx.keys = fn.keys = keys;
 	return fn;
 }
 
-for (let k in CODES) {
+for (const k in CODES) {
 	CODES[k] = {
 		beg: `\x1b[${CODES[k][0]}m`,
 		end: `\x1b[${CODES[k][1]}m`,
