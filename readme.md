@@ -123,7 +123,7 @@ const kleur = require('kleur');
 kleur.enabled = false;
 
 // or use a library to detect support
-kleur.enabled = require('color-support').stdout;
+kleur.enabled = require('color-support').level;
 
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
