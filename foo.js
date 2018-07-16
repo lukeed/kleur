@@ -1,13 +1,18 @@
 const CODES = require('./codes');
 let $ = { enabled:true };
 
+function run(key, str) {
+	let tmp = CODES[key];
+	return tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
+}
+
 function exec(str) {
 	if (!$.enabled) return str;
-	let tmp, arr=this.keys;
-	while (arr.length) {
-		tmp = CODES[arr.shift()];
-		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
+	let arr=this.keys, old=arr[0];
+	while (arr.length > 0) {
+		str = run(arr.shift(), str);
 	}
+	this.keys = [old];
 	return str;
 }
 
