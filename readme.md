@@ -133,7 +133,7 @@ console.log(kleur.red('I will only be colored red if the terminal supports color
 
 Any `kleur` method returns a `String` (when invoked, not chained). It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
 
-The methods below are grouped by type for legbility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
+The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
 
 ***Colors:***
 > black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray
