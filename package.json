@@ -5,7 +5,7 @@
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
   "main": "./index.js",
-  "types": "./types/index.d.ts",
+  "types": "./index.d.ts",
   "files": [
     "*.js"
   ],
@@ -15,8 +15,7 @@
     "url": "lukeed.com"
   },
   "scripts": {
-    "types": "ts-node ./types/test.ts",
-    "test": "tape test/*.js | tap-spec && npm run types"
+    "test": "tape test/*.js | tap-spec"
   },
   "engines": {
     "node": ">=6"
@@ -30,10 +29,7 @@
     "terminal"
   ],
   "devDependencies": {
-    "@types/node": "^10.5.2",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
-    "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
+    "tape": "^4.9.1"
   }
 }
