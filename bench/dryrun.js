@@ -2,7 +2,7 @@ const libs = {
   chalk: require('chalk'),
   clorox: require('clorox'),
   colors: require('ansi-colors'),
-  kleur: require('..')
+  kleur: require('../foo')
 };
 
 const color = libs[process.argv[2] || 'kleur'];
@@ -13,6 +13,8 @@ const color = libs[process.argv[2] || 'kleur'];
 ].forEach(str => {
 	console.log(color[str]('~foobar~'));
 });
+
+console.log(color['cyan']('[info]'));
 
 console.log();
 console.log(color.bold(color.cyan('[info]')), color.cyan('This is some information'));

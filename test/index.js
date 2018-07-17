@@ -1,7 +1,7 @@
 const test = require('tape');
 // Assign before kleur mutates entries
 const CODES = Object.assign({}, require('../codes'));
-const c = require('../');
+const c = require('../foo');
 
 test('kleur', t => {
 	t.is(typeof c, 'object', 'exports an object');
