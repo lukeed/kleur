@@ -185,9 +185,11 @@ kleur: 0.611ms
 
 ## Credits
 
-This project (inadvertently) is very similar to [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) project. My original implementation involved writing into a global state &mdash; first by writing into an output string, and then by saving the `keys` array into the `$` directly. Both approaches were leaky & allowed for accidental chains/overwrites. In turn, I borrowed `ansi-colors`'s approach in writing `keys` state into each chain directly.
+This project is based on [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) project. My original implementation involved writing into a global state &mdash; first by writing into an output string, and then by saving the `keys` array into the `$` directly. Both approaches were leaky & allowed for accidental chains/overwrites. In turn, I borrowed `ansi-colors`'s approach in writing `keys` state into each chain directly.
 
-Aside from the performance boost, `kleur` exists as a separate module because I've no need for bright color variants nor the symbols. And since those are defining features of `ansi-colors`, they're not something that can be removed.
+Aside from the performance boost, `kleur` exists as a separate module because I've removed some of `ansi-colors`'s defining features, like bright color variants and symbols. It's tailor-made for my needs and experimentation.
+
+> You'll probably want to use [`ansi-colors`](https://github.com/doowb/ansi-colors), especially if you need any of those features! [You'll be in good company!](https://www.npmjs.com/browse/depended/ansi-colors)
 
 The benchmark suite is also imported directly from `ansi-colors` :raised_hands:
 
