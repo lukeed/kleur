@@ -5,7 +5,8 @@
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
   "files": [
-    "*.js"
+    "*.js",
+    "*.d.ts"
   ],
   "author": {
     "name": "Luke Edwards",
@@ -26,6 +27,7 @@
     "console",
     "terminal"
   ],
+  "types": "kleur.d.ts",
   "devDependencies": {
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
