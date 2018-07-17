@@ -4,10 +4,10 @@
   "repository": "lukeed/kleur",
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "types": "./kleur.d.ts",
   "files": [
-    "*.js"
+    "*.js",
+    "*.d.ts"
   ],
   "author": {
     "name": "Luke Edwards",
