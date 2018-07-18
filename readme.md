@@ -6,9 +6,6 @@
   <a href="https://npmjs.org/package/kleur">
     <img src="https://badgen.now.sh/npm/v/kleur" alt="version" />
   </a>
-  <a href="https://david-dm.org/lukeed/kleur">
-    <img src="https://badgen.now.sh/david/dep/lukeed/kleur" alt="dependencies" />
-  </a>
   <a href="https://travis-ci.org/lukeed/kleur">
     <img src="https://badgen.now.sh/travis/lukeed/kleur" alt="travis" />
   </a>
