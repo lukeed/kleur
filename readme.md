@@ -6,11 +6,17 @@
   <a href="https://npmjs.org/package/kleur">
     <img src="https://img.shields.io/npm/v/kleur.svg" alt="version" />
   </a>
+  <a href="https://david-dm.org/lukeed/kleur">
+    <img src="https://badgen.now.sh/david/dep/lukeed/kleur" alt="dependencies" />
+  </a>
   <a href="https://travis-ci.org/lukeed/kleur">
     <img src="https://img.shields.io/travis/lukeed/kleur.svg" alt="travis" />
   </a>
   <a href="https://npmjs.org/package/kleur">
     <img src="https://img.shields.io/npm/dm/kleur.svg" alt="downloads" />
+  </a>
+  <a href="https://packagephobia.now.sh/result?p=kleur">
+    <img src="https://packagephobia.now.sh/badge?p=kleur" alt="install size" />
   </a>
 </div>
 
