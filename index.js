@@ -44,19 +44,19 @@ function run(key, str) {
 	return tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
 }
 
-function exec(str) {
+function exec(key, str) {
 	if (!$.enabled) return str;
-	let arr=this.keys, old=arr[0];
+	let arr = this.keys;
 	while (arr.length > 0) {
 		str = run(arr.shift(), str);
 	}
-	this.keys = [old];
+	this.keys.push(key);
 	return str;
 }
 
-function attach(keys) {
-	let ctx = { keys };
-	let fn = exec.bind(ctx);
+function attach(key) {
+	let ctx = { keys:[key] };
+	let fn = exec.bind(ctx, key);
 	for (let k in CODES) {
 		Reflect.defineProperty(fn, k, {
 			get() {
