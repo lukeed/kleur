@@ -82,8 +82,3 @@ export const strikethrough: KleurOrFunction;
  *       Workaround is to use `import kleur = require('kleur');`.
  */
 export let enabled: boolean;
-
-/**
- * Remove Styles
- */
-export function clear(string: string): string;
