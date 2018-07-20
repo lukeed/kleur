@@ -1,6 +1,5 @@
 const test = require('tape');
-// Assign before kleur mutates entries
-const CODES = Object.assign({}, require('../codes'));
+const CODES = require('./codes');
 const c = require('..');
 
 const ANSI = x => `\x1b[${x}m`;
