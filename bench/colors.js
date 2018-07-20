@@ -3,7 +3,7 @@ const cursor = require('ansi')(process.stdout);
 const color = require('ansi-colors');
 const { Clorox } = require('clorox');
 const chalk = require('chalk');
-const kleur = require('../foo');
+const kleur = require('..');
 
 const names = [
   'reset',
