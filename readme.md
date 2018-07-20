@@ -25,11 +25,10 @@
 * Super [lightweight](##load-time) & [performant](#performance)
 * Supports [nested](#nested-methods) & [chained](#chained-methods) colors
 * No `String.prototype` modifications
-* Supports [`printf`](#printf-formatting) formatting
 * Conditional [color support](#conditional-support)
 * Familiar [API](#api)
 
-_Heavily inspired by [`ansi-colors`](https://github.com/doowb/ansi-colors). See [Credits](#credits) for more info!_
+_Originally inspired by [`ansi-colors`](https://github.com/doowb/ansi-colors). See [Credits](#credits) for more info!_
 
 
 ## Install
@@ -46,12 +45,6 @@ const kleur = require('kleur');
 
 // basic usage
 kleur.red('red text');
-
-// or variadic arguments
-kleur.red('this', 'is', 'also', 'red');
-
-// or printf formatting
-kleur.red('%s, %s!', 'hello', 'world');
 
 // chained methods
 kleur.blue.bold.underline('howdy partner');
@@ -76,44 +69,12 @@ console.log(kleur.green.bold.underline('this is a bold green underlined message'
 ```js
 const { yellow, red, cyan } = require('kleur');
 
-// with template literals
 console.log(yellow(`foo ${red.bold('red')} bar ${cyan('cyan')} baz`));
-
-// or variadic arguments
-console.log(yellow('foo', red.bold('red'), 'bar', cyan('cyan'), 'baz'));
+console.log(yellow('foo ' + red.bold('red') + ' bar ' + cyan('cyan') + ' baz'));
 ```
 
 <img src="shots/2.png" width="300" />
 
-
-### `printf` Formatting
-
-> See [`util.format`](https://nodejs.org/api/util.html#util_util_format_format_args) for documentation
-
-```js
-const { yellow, bgGreen, bold } = require('kleur');
-
-// basic usage
-console.log(bold.cyan('%s, %s!', 'Hello', 'World', '-Anonymous'));
-
-// or with nested colors
-console.log( bold('%s-like %s... %s!', 'printf', bgGreen.black('formatting'), yellow('YAY')) );
-```
-
-<img src="shots/3.png" width="300" />
-
-
-### Clear Formatting
-
-Manually strip all ANSI codes from a given string.
-
-```js
-let str = kleur.blue('Howdy partner');
-//=> styled
-
-kleur.clear(str);
-//=> 'Howdy partner'
-```
 
 ### Conditional Support
 
@@ -157,44 +118,49 @@ The methods below are grouped by type for legibility purposes only. They each ca
 ### Load time
 
 ```
-ansi-colors: 1.150ms
-chalk: 8.440ms
-clorox: 0.471ms
-kleur: 0.611ms
+chalk: 9.372ms
+turbocolor: 0.526ms
+ansi-colors: 0.851ms
+kleur: 0.862ms
 ```
 
 ### Performance
 
 ```
 # All Colors
-  ansi-colors x 60,646 ops/sec ±0.49% (96 runs sampled)
-  chalk x 7,228 ops/sec ±3.25% (73 runs sampled)
-  clorox x 86,631 ops/sec ±0.59% (94 runs sampled)
-  kleur x 95,595 ops/sec ±0.24% (96 runs sampled)
+  ansi-colors x 60,762 ops/sec ±0.36% (96 runs sampled)
+  chalk x 7,144 ops/sec ±3.99% (71 runs sampled)
+  turbocolor x 98,181 ops/sec ±0.30% (95 runs sampled)
+  kleur x 146,739 ops/sec ±0.55% (93 runs sampled)
 
 # Stacked colors
-  ansi-colors x 13,576 ops/sec ±0.42% (93 runs sampled)
-  chalk x 1,669 ops/sec ±4.56% (71 runs sampled)
-  clorox x 26,166 ops/sec ±1.44% (91 runs sampled)
-  kleur x 28,674 ops/sec ±0.29% (93 runs sampled)
+  ansi-colors x 13,600 ops/sec ±0.15% (95 runs sampled)
+  chalk x 1,690 ops/sec ±4.75% (70 runs sampled)
+  turbocolor x 28,830 ops/sec ±0.21% (94 runs sampled)
+  kleur x 30,573 ops/sec ±0.15% (96 runs sampled)
 
 # Nested colors
-  ansi-colors x 28,712 ops/sec ±0.60% (96 runs sampled)
-  chalk x 3,446 ops/sec ±4.59% (69 runs sampled)
-  Clorox x 40,821 ops/sec ±1.90% (94 runs sampled)
-  kleur x 43,242 ops/sec ±0.17% (97 runs sampled)
+  ansi-colors x 28,747 ops/sec ±0.50% (90 runs sampled)
+  chalk x 3,424 ops/sec ±4.04% (71 runs sampled)
+  turbocolor x 41,181 ops/sec ±2.99% (91 runs sampled)
+  kleur x 61,155 ops/sec ±0.19% (96 runs sampled)
 ```
 
 
 ## Credits
 
-This project is based on [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) project. My original implementation involved writing into a global state &mdash; first by writing into an output string, and then by saving the `keys` array into the `$` directly. Both approaches were leaky & allowed for accidental chains/overwrites. In turn, I borrowed `ansi-colors`'s approach in writing `keys` state into each chain directly.
+This project was originally inspired by [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) project.
 
-Aside from the performance boost, `kleur` exists as a separate module because I've removed some of `ansi-colors`'s defining features, like bright color variants and symbols. It's tailor-made for my needs and experimentation.
+Unlike v1, the latest version(s) of `kleur` no longer supports:
 
-> You'll probably want to use [`ansi-colors`](https://github.com/doowb/ansi-colors), especially if you need any of those features! [You'll be in good company!](https://www.npmjs.com/browse/depended/ansi-colors)
+* printf-formatting
+* variadic function arguments
+* multiline text via `\n` or `\r`
+* `kleur.clear()` method
 
-The benchmark suite is also imported directly from `ansi-colors` :raised_hands:
+In addition, `kleur` continues to be ship without symbols and bright color variants.
+
+If you need _any_ of these features, please use `ansi-colors` instead~!
 
 
 ## License
