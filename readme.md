@@ -4,13 +4,16 @@
 
 <div align="center">
   <a href="https://npmjs.org/package/kleur">
-    <img src="https://img.shields.io/npm/v/kleur.svg" alt="version" />
+    <img src="https://badgen.now.sh/npm/v/kleur" alt="version" />
   </a>
   <a href="https://travis-ci.org/lukeed/kleur">
-    <img src="https://img.shields.io/travis/lukeed/kleur.svg" alt="travis" />
+    <img src="https://badgen.now.sh/travis/lukeed/kleur" alt="travis" />
   </a>
   <a href="https://npmjs.org/package/kleur">
-    <img src="https://img.shields.io/npm/dm/kleur.svg" alt="downloads" />
+    <img src="https://badgen.now.sh/npm/dm/kleur" alt="downloads" />
+  </a>
+  <a href="https://packagephobia.now.sh/result?p=kleur">
+    <img src="https://packagephobia.now.sh/badge?p=kleur" alt="install size" />
   </a>
 </div>
 
@@ -94,7 +97,7 @@ console.log(kleur.red('I will only be colored red if the terminal supports color
 
 Any `kleur` method returns a `String` (when invoked, not chained). It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
 
-The methods below are grouped by type for legbility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
+The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
 
 ***Colors:***
 > black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray
