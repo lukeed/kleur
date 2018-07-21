@@ -45,6 +45,7 @@ function run(key, str) {
 }
 
 function exec(key, str) {
+	str += '';
 	if (!$.enabled) return str;
 	let arr = this.keys;
 	while (arr.length > 0) {
