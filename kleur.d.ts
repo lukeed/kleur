@@ -44,36 +44,8 @@ interface KleurInstance {
     strikethrough: KleurOrFunction;
 }
 
-/* Colors */
-export const black: KleurOrFunction;
-export const red: KleurOrFunction;
-export const green: KleurOrFunction;
-export const yellow: KleurOrFunction;
-export const blue: KleurOrFunction;
-export const magenta: KleurOrFunction;
-export const cyan: KleurOrFunction;
-export const white: KleurOrFunction;
-export const gray: KleurOrFunction;
-
-/* Background Colors */
-export const bgBlack: KleurOrFunction;
-export const bgRed: KleurOrFunction;
-export const bgGreen: KleurOrFunction;
-export const bgYellow: KleurOrFunction;
-export const bgBlue: KleurOrFunction;
-export const bgMagenta: KleurOrFunction;
-export const bgCyan: KleurOrFunction;
-export const bgWhite: KleurOrFunction;
-
-/* Modifiers */
-export const reset: KleurOrFunction;
-export const bold: KleurOrFunction;
-export const dim: KleurOrFunction;
-export const italic: KleurOrFunction;
-export const underline: KleurOrFunction;
-export const inverse: KleurOrFunction;
-export const hidden: KleurOrFunction;
-export const strikethrough: KleurOrFunction;
+declare let kleur: KleurInstance;
+export default kleur;
 
 /**
  * Enable ANSI Colors.
