@@ -19,7 +19,7 @@
 ## Features
 
 * No dependencies
-* Super [lightweight](##load-time) & [performant](#performance)
+* Super [lightweight](#load-time) & [performant](#performance)
 * Supports [nested](#nested-methods) & [chained](#chained-methods) colors
 * No `String.prototype` modifications
 * Supports [`printf`](#printf-formatting) formatting
