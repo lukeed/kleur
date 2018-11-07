@@ -1,3 +1,5 @@
+const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
+
 const CODES = {
 	// modifiers
 	reset: [0, 0],
@@ -31,7 +33,9 @@ const CODES = {
 	bgWhite: [47, 49]
 };
 
-let $ = { enabled:true };
+let $ = {
+	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
+};
 
 function run(ctx, str) {
 	let tmp;
