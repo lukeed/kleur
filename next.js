@@ -43,6 +43,21 @@ function run(ctx, str) {
 	return str;
 }
 
+function input(key, txt) {
+	if (this.keys === void 0) {
+		this.keys = [key];
+		for (let k in $) {
+			if (k !== 'enabled') {
+				this[k] = input.bind(this, k);
+			}
+		}
+	} else {
+		this.keys.push(key);
+	}
+	let str = txt == null ? '' : txt+'';
+	return str && $.enabled ? run(this, str) : str || this;
+}
+
 for (let key in CODES) {
 	CODES[key] = {
 		open: `\x1b[${CODES[key][0]}m`,
@@ -50,20 +65,7 @@ for (let key in CODES) {
 		rgx: new RegExp(`\\x1b\\[${CODES[key][1]}m`, 'g')
 	};
 
-	$[key] = function (txt) {
-		if (this.keys === void 0) {
-			for (let k in $) {
-				if (k !== 'enabled') {
-					this[k] = $[k].bind(this);
-				}
-			}
-			this.keys = [key];
-		} else {
-			this.keys.push(key);
-		}
-		let str = txt == null ? '' : txt+'';
-		return str && $.enabled ? run(this, str) : str || this;
-	}
+	$[key] = input.bind({}, key);
 }
 
 module.exports = $;
