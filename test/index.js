@@ -1,6 +1,6 @@
 const test = require('tape');
 const CODES = require('./codes');
-const c = require('../next');
+const c = require('..');
 
 const ANSI = x => `\x1b[${x}m`;
 
