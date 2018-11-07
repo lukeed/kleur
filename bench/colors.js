@@ -1,7 +1,6 @@
 const { Suite } = require('benchmark');
 const cursor = require('ansi')(process.stdout);
 const color = require('ansi-colors');
-const { Clorox } = require('clorox');
 const chalk = require('chalk');
 const kleur = require('..');
 
@@ -64,9 +63,6 @@ bench('All Colors')
   .add('chalk', () => {
     names.forEach(name => chalk[name]('foo'));
   })
-  .add('clorox', () => {
-    names.forEach(name => Clorox[name]('foo'));
-  })
   .add('kleur', () => {
     names.forEach(name => kleur[name]('foo'));
   })
@@ -79,18 +75,14 @@ bench('Stacked colors')
   .add('chalk', () => {
     names.forEach(name => chalk[name].bold.underline.italic('foo'));
   })
-  .add('clorox', () => {
-    names.forEach(name => Clorox[name].bold.underline.italic('foo'));
-  })
   .add('kleur', () => {
-    names.forEach(name => kleur[name].bold.underline.italic('foo'));
+    names.forEach(name => kleur[name]().bold().underline().italic('foo'));
   })
   .run();
 
 bench('Nested colors')
   .add('ansi-colors', () => fixture(color))
   .add('chalk', () => fixture(chalk))
-  .add('clorox', () => fixture(Clorox))
   .add('kleur', () => fixture(kleur))
   .run();
 
