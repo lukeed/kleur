@@ -44,6 +44,8 @@ function run(ctx, str) {
 }
 
 function input(key, txt) {
+	let str = txt == null ? '' : txt+'';
+	if (!$.enabled) return str || this;
 	if (this.keys === void 0) {
 		this.keys = [key];
 		for (let k in $) {
@@ -54,8 +56,7 @@ function input(key, txt) {
 	} else {
 		this.keys.push(key);
 	}
-	let str = txt == null ? '' : txt+'';
-	return str && $.enabled ? run(this, str) : str || this;
+	return str ? run(this, str) : this;
 }
 
 for (let key in CODES) {
