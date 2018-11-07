@@ -33,8 +33,9 @@ const CODES = {
 
 let $ = { enabled:true };
 
-function run(arr, str) {
+function run(ctx, str) {
 	let tmp;
+	let arr = ctx.keys;
 	while (arr.length > 0) {
 		tmp = CODES[ arr.shift() ];
 		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
@@ -42,20 +43,27 @@ function run(arr, str) {
 	return str;
 }
 
-for (let k in CODES) {
-	CODES[k] = {
-		open: `\x1b[${CODES[k][0]}m`,
-		close: `\x1b[${CODES[k][1]}m`,
-		rgx: new RegExp(`\\x1b\\[${CODES[k][1]}m`, 'g')
+for (let key in CODES) {
+	CODES[key] = {
+		open: `\x1b[${CODES[key][0]}m`,
+		close: `\x1b[${CODES[key][1]}m`,
+		rgx: new RegExp(`\\x1b\\[${CODES[key][1]}m`, 'g')
 	};
-	$[k] = function (str) {
-		// console.log('\n> inside main:', k, this.keys);
-		if (str && !$.enabled) return str;
-		this.keys = this.keys || [];
-		this.keys.push(k);
-		// console.log('>> pushed', this.keys);
-		return str ? run(this.keys, str) : this;
-	};
+
+	$[key] = function (txt) {
+		if (this.keys === void 0) {
+			for (let k in $) {
+				if (k !== 'enabled') {
+					this[k] = $[k].bind(this);
+				}
+			}
+			this.keys = [key];
+		} else {
+			this.keys.push(key);
+		}
+		let str = txt == null ? '' : txt+'';
+		return str && $.enabled ? run(this, str) : str || this;
+	}
 }
 
 module.exports = $;
