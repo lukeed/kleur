@@ -43,14 +43,14 @@ function run(ctx, str) {
 	return str;
 }
 
-function input(key, txt) {
+function apply(key, txt) {
 	let str = txt == null ? '' : txt+'';
 	if (!$.enabled) return str || this;
 	if (this.keys === void 0) {
 		this.keys = [key];
 		for (let k in $) {
 			if (k !== 'enabled') {
-				this[k] = input.bind(this, k);
+				this[k] = apply.bind(this, k);
 			}
 		}
 	} else {
@@ -66,7 +66,7 @@ for (let key in CODES) {
 		rgx: new RegExp(`\\x1b\\[${CODES[key][1]}m`, 'g')
 	};
 
-	$[key] = input.bind({}, key);
+	$[key] = apply.bind({}, key);
 }
 
 module.exports = $;
