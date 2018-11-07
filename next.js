@@ -47,15 +47,14 @@ function apply(key, txt) {
 	let str = txt == null ? '' : txt+'';
 	if (!$.enabled) return str || this;
 	if (this.keys === void 0) {
-		this.keys = [key];
+		this.keys = [];
 		for (let k in $) {
 			if (k !== 'enabled') {
 				this[k] = apply.bind(this, k);
 			}
 		}
-	} else {
-		this.keys.push(key);
 	}
+	this.keys.includes(key) || this.keys.push(key);
 	return str ? run(this, str) : this;
 }
 
