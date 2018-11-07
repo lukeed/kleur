@@ -1,6 +1,5 @@
 const libs = {
   chalk: require('chalk'),
-  clorox: require('clorox'),
   colors: require('ansi-colors'),
   kleur: require('..')
 };
