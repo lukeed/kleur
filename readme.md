@@ -28,7 +28,11 @@
 * Conditional [color support](#conditional-support)
 * Familiar [API](#api)
 
-_Originally inspired by [`ansi-colors`](https://github.com/doowb/ansi-colors). See [Credits](#credits) for more info!_
+---
+
+As of `v3.0` the Chalk-style syntax (magical getter) is no longer used.<br>If you need or require that syntax, consider using [`ansi-colors`](https://github.com/doowb/ansi-colors), which maintains `chalk` parity.
+
+---
 
 
 ## Install
@@ -41,25 +45,25 @@ $ npm install --save kleur
 ## Usage
 
 ```js
-const kleur = require('kleur');
+const { red, white, blue, bold } = require('kleur');
 
 // basic usage
-kleur.red('red text');
+red('red text');
 
 // chained methods
-kleur.blue.bold.underline('howdy partner');
+blue().bold().underline('howdy partner');
 
 // nested methods
-kleur.bold(`${ kleur.bgRed.white('[ERROR]') } ${ kleur.red.italic('Something happened')}`);
+bold(`${ white().bgRed('[ERROR]') } ${ red().italic('Something happened')}`);
 ```
 
 ### Chained Methods
 
 ```js
-console.log(kleur.bold.red('this is a bold red message'));
-console.log(kleur.bold.italic('this is a bold italicized message'));
-console.log(kleur.bold.yellow.bgRed.italic('this is a bold yellow italicized message'));
-console.log(kleur.green.bold.underline('this is a bold green underlined message'));
+console.log(bold().red('this is a bold red message'));
+console.log(bold().italic('this is a bold italicized message'));
+console.log(bold().yellow().bgRed().italic('this is a bold yellow italicized message'));
+console.log(green().bold().underline('this is a bold green underlined message'));
 ```
 
 <img src="shots/1.png" width="300" />
@@ -69,8 +73,8 @@ console.log(kleur.green.bold.underline('this is a bold green underlined message'
 ```js
 const { yellow, red, cyan } = require('kleur');
 
-console.log(yellow(`foo ${red.bold('red')} bar ${cyan('cyan')} baz`));
-console.log(yellow('foo ' + red.bold('red') + ' bar ' + cyan('cyan') + ' baz'));
+console.log(yellow(`foo ${red().bold('red')} bar ${cyan('cyan')} baz`));
+console.log(yellow('foo ' + red().bold('red') + ' bar ' + cyan('cyan') + ' baz'));
 ```
 
 <img src="shots/2.png" width="300" />
@@ -78,7 +82,7 @@ console.log(yellow('foo ' + red.bold('red') + ' bar ' + cyan('cyan') + ' baz'));
 
 ### Conditional Support
 
-Toggle color support as needed; `kleur` assumes it's always enabled.
+Toggle color support as needed; `kleur` includes simple auto-detection which may not cover all cases.
 
 ```js
 const kleur = require('kleur');
@@ -86,7 +90,7 @@ const kleur = require('kleur');
 // manually disable
 kleur.enabled = false;
 
-// or use a library to detect support
+// or use another library to detect support
 kleur.enabled = require('color-support').level;
 
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
@@ -95,7 +99,9 @@ console.log(kleur.red('I will only be colored red if the terminal supports color
 
 ## API
 
-Any `kleur` method returns a `String` (when invoked, not chained). It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
+Any `kleur` method returns a `String` when invoked with input; otherwise chaining is expected.
+
+> It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
 
 The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
 
@@ -113,54 +119,52 @@ The methods below are grouped by type for legibility purposes only. They each ca
 
 ## Benchmarks
 
-> Using Node v8.9.0
+> Using Node v10.13.0
 
 ### Load time
 
 ```
-chalk: 9.372ms
-turbocolor: 0.526ms
-ansi-colors: 0.851ms
-kleur: 0.862ms
+chalk: 9.238ms
+kleur: 0.429ms
+ansi-colors: 1.117ms
 ```
 
 ### Performance
 
 ```
 # All Colors
-  ansi-colors x 60,485 ops/sec ±0.63% (96 runs sampled)
-  chalk x 7,184 ops/sec ±3.77% (68 runs sampled)
-  turbocolor x 95,468 ops/sec ±0.60% (94 runs sampled))
-  kleur x 151,365 ops/sec ±0.22% (95 runs sampled)
+  ansi-colors x 203,838 ops/sec ±0.26% (97 runs sampled)
+  chalk x 11,989 ops/sec ±1.82% (84 runs sampled)
+  kleur x 302,868 ops/sec ±0.36% (96 runs sampled)
 
 # Stacked colors
-  ansi-colors x 13,754 ops/sec ±0.44% (93 runs sampled)
-  chalk x 1,732 ops/sec ±3.76% (71 runs sampled)
-  turbocolor x 28,709 ops/sec ±1.32% (92 runs sampled)
-  kleur x 30,837 ops/sec ±0.13% (93 runs sampled)
+  ansi-colors x 25,117 ops/sec ±0.33% (93 runs sampled)
+  chalk x 2,597 ops/sec ±2.46% (80 runs sampled)
+  kleur x 49,323 ops/sec ±0.22% (95 runs sampled)
 
 # Nested colors
-  ansi-colors x 28,898 ops/sec ±0.32% (96 runs sampled)
-  chalk x 3,389 ops/sec ±4.03% (71 runs sampled)
-  turbocolor x 48,034 ops/sec ±1.47% (99 runs sampled)
-  kleur x 61,266 ops/sec ±0.33% (97 runs sampled)
+  ansi-colors x 76,906 ops/sec ±0.36% (95 runs sampled)
+  chalk x 5,700 ops/sec ±1.48% (89 runs sampled)
+  kleur x 88,611 ops/sec ±0.50% (93 runs sampled)
 ```
 
 
 ## Credits
 
-This project was originally inspired by [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) project.
+This project originally forked [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) library.
 
-Unlike v1, the latest version(s) of `kleur` no longer supports:
+Beginning with `kleur@3.0`, the Chalk-style syntax (magical getter) has been replaced with function calls per key:
 
-* printf-formatting
-* variadic function arguments
-* multiline text via `\n` or `\r`
-* `kleur.clear()` method
+```js
+// Old:
+c.red.bold.underline('old');
 
-In addition, `kleur` continues to be ship without symbols and bright color variants.
+// New:
+c.red().bold().underline('new');
+```
+> <sup><em>As I work more with Rust, the newer syntax feels so much better & more natural!</em></sup>
 
-If you need _any_ of these features, please use `ansi-colors` instead~!
+If you prefer the old syntax, you may migrate to `ansi-colors`... or suffer the deprecation notice on older `kleur` versions :sweat_smile:
 
 
 ## License
