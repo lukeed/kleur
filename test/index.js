@@ -85,6 +85,7 @@ test('partial require', t => {
 
 test('disabled', t => {
 	c.enabled = false;
-	t.is(c.red().bold('foobar'), 'foobar', '~> equiv of clear()');
+	t.is(c.red('foo'), 'foo', '~> raw text only');
+	t.is(c.red().italic().bold('foobar'), 'foobar', '~> chaining okay');
 	t.end();
 });
