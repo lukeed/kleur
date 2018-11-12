@@ -17,7 +17,7 @@ test('codes', t => {
 		val = c[k]('~foobar~');
 		t.comment(`:: kleur.${k} ::`)
 		t.is(typeof c[k], 'function', `is a function`);
-		t.ok(c[k]().hasOwnProperty('bold'), '~> and is chainable');
+		t.is(typeof c[k]().bold, 'function', '~> and is chainable');
 		t.is(typeof val, 'string', 'returns a string value');
 		t.is(val, ANSI(tmp[0]) + '~foobar~' + ANSI(tmp[1]), '~> matches expected');
 	}
@@ -79,6 +79,27 @@ test('partial require', t => {
 	t.is(r('foo'), ANSI(red[0]) + 'foo' + ANSI(red[1]), '~> red() – clean');
 	t.is(b('bar'), ANSI(bold[0]) + 'bar' + ANSI(bold[1]), '~> bold() – clean');
 	t.is(i('baz'), ANSI(italic[0]) + 'baz' + ANSI(italic[1]), '~> italic() – clean');
+
+	t.end();
+});
+
+test('named chains', t => {
+	let { red, bold, italic } = CODES;
+
+	let foo = c.red().bold;
+	let bar = c.bold().italic().red;
+
+	t.is(c.red('foo'), ANSI(red[0]) + 'foo' + ANSI(red[1]), '~> c.red() – clean');
+	t.is(c.bold('bar'), ANSI(bold[0]) + 'bar' + ANSI(bold[1]), '~> c.bold() – clean');
+
+	t.is(foo('foo'), ANSI(bold[0]) + ANSI(red[0]) + 'foo' + ANSI(red[1]) + ANSI(bold[1]), '~> foo()');
+	t.is(foo('foo'), ANSI(bold[0]) + ANSI(red[0]) + 'foo' + ANSI(red[1]) + ANSI(bold[1]), '~> foo() – repeat');
+
+	t.is(bar('bar'), ANSI(red[0]) + ANSI(italic[0]) + ANSI(bold[0]) + 'bar' + ANSI(bold[1]) + ANSI(italic[1]) + ANSI(red[1]), '~> bar()');
+	t.is(bar('bar'), ANSI(red[0]) + ANSI(italic[0]) + ANSI(bold[0]) + 'bar' + ANSI(bold[1]) + ANSI(italic[1]) + ANSI(red[1]), '~> bar() – repeat');
+
+	t.is(c.red('foo'), ANSI(red[0]) + 'foo' + ANSI(red[1]), '~> c.red() – clean');
+	t.is(c.bold('bar'), ANSI(bold[0]) + 'bar' + ANSI(bold[1]), '~> c.bold() – clean');
 
 	t.end();
 });
