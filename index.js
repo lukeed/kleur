@@ -37,29 +37,25 @@ let $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
 };
 
-function run(ctx, str) {
-	let tmp;
-	let arr = ctx.keys;
-	while (arr.length > 0) {
-		tmp = CODES[ arr.shift() ];
+function step(key, txt) {
+	let str = txt == null ? '' : txt+'';
+	this.keys.includes(key) || this.keys.push(key);
+	return $.enabled && str ? run(this.keys, str) : str || this;
+}
+
+function chain(key) {
+	let ctx = { keys:[key] };
+	for (let k in CODES) ctx[k] = step.bind(ctx, k);
+	return ctx;
+}
+
+function run(arr, str) {
+	let i=0, tmp;
+	for (; i < arr.length;) {
+		tmp = CODES[ arr[i++] ];
 		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
 	}
 	return str;
-}
-
-function apply(key, txt) {
-	let str = txt == null ? '' : txt+'';
-	if (!$.enabled) return str || this;
-	if (this.keys === void 0) {
-		this.keys = [];
-		for (let k in $) {
-			if (k !== 'enabled') {
-				this[k] = apply.bind(this, k);
-			}
-		}
-	}
-	this.keys.includes(key) || this.keys.push(key);
-	return str ? run(this, str) : this;
 }
 
 for (let key in CODES) {
@@ -69,7 +65,10 @@ for (let key in CODES) {
 		rgx: new RegExp(`\\x1b\\[${CODES[key][1]}m`, 'g')
 	};
 
-	$[key] = apply.bind({}, key);
+	$[key] = txt => {
+		let str = txt == null ? '' : txt+'';
+		return $.enabled && str ? run([key], str) : str || chain(key);
+	}
 }
 
 module.exports = $;
