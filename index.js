@@ -37,15 +37,17 @@ let $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
 };
 
-function step(key, txt) {
+function link(key, txt) {
 	let str = txt == null ? '' : txt+'';
 	this.keys.includes(key) || this.keys.push(key);
 	return $.enabled && str ? run(this.keys, str) : str || this;
 }
 
 function chain(key) {
-	let ctx = { keys:[key] };
-	for (let k in CODES) ctx[k] = step.bind(ctx, k);
+	let k, ctx={ keys:[key] };
+	for (k in CODES) {
+		ctx[k] = link.bind(ctx, k);
+	}
 	return ctx;
 }
 
@@ -68,7 +70,7 @@ for (let key in CODES) {
 	$[key] = txt => {
 		let str = txt == null ? '' : txt+'';
 		return $.enabled && str ? run([key], str) : str || chain(key);
-	}
+	};
 }
 
 module.exports = $;
