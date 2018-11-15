@@ -8,6 +8,15 @@ function code(open, close) {
 	};
 }
 
+function init(key) {
+	return function (txt) {
+		let isChain = !!this.keys;
+		let str = txt == null ? '' : txt+'';
+		if (isChain) this.keys.includes(key) || this.keys.push(key);
+		return $.enabled && !!str ? run(isChain ? this.keys : [key], str) : str || (isChain ? this : chain([key]));
+	};
+}
+
 const CODES = {
 	// modifiers
 	reset: code(0, 0),
@@ -69,10 +78,10 @@ function run(arr, str) {
 }
 
 for (let key in CODES) {
-	$[key] = txt => {
-		let str = txt == null ? '' : txt+'';
-		return $.enabled && str ? run([key], str) : str || chain(key);
-	};
+	Object.defineProperty($, key, {
+		value: init(key),
+		writable: false
+	});
 }
 
 module.exports = $;
