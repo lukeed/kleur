@@ -54,17 +54,37 @@ let $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
 };
 
-function link(key, txt) {
-	let str = txt == null ? '' : txt+'';
-	this.keys.includes(key) || this.keys.push(key);
-	return $.enabled && str ? run(this.keys, str) : str || this;
-}
+function chain(keys) {
+	let ctx = { keys };
 
-function chain(key) {
-	let k, ctx={ keys:[key] };
-	for (k in CODES) {
-		ctx[k] = link.bind(ctx, k);
-	}
+	ctx.reset = $.reset.bind(ctx);
+	ctx.bold = $.bold.bind(ctx);
+	ctx.dim = $.dim.bind(ctx);
+	ctx.italic = $.italic.bind(ctx);
+	ctx.underline = $.underline.bind(ctx);
+	ctx.inverse = $.inverse.bind(ctx);
+	ctx.hidden = $.hidden.bind(ctx);
+	ctx.strikethrough = $.strikethrough.bind(ctx);
+
+	ctx.black = $.black.bind(ctx);
+	ctx.red = $.red.bind(ctx);
+	ctx.green = $.green.bind(ctx);
+	ctx.yellow = $.yellow.bind(ctx);
+	ctx.blue = $.blue.bind(ctx);
+	ctx.magenta = $.magenta.bind(ctx);
+	ctx.cyan = $.cyan.bind(ctx);
+	ctx.white = $.white.bind(ctx);
+	ctx.gray = $.gray.bind(ctx);
+
+	ctx.bgBlack = $.bgBlack.bind(ctx);
+	ctx.bgRed = $.bgRed.bind(ctx);
+	ctx.bgGreen = $.bgGreen.bind(ctx);
+	ctx.bgYellow = $.bgYellow.bind(ctx);
+	ctx.bgBlue = $.bgBlue.bind(ctx);
+	ctx.bgMagenta = $.bgMagenta.bind(ctx);
+	ctx.bgCyan = $.bgCyan.bind(ctx);
+	ctx.bgWhite = $.bgWhite.bind(ctx);
+
 	return ctx;
 }
 
