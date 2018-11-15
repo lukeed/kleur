@@ -62,7 +62,7 @@ function chain(key) {
 function run(arr, str) {
 	let i=0, tmp={};
 	for (; i < arr.length;) {
-		tmp = CODES[ arr[i++] ];
+		tmp = Reflect.get(CODES, arr[i++]);
 		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
 	}
 	return str;
