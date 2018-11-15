@@ -91,9 +91,9 @@ function chain(keys) {
 function init(key) {
 	return function (txt) {
 		let isChain = !!this.keys;
-		let str = txt == null ? '' : txt+'';
 		if (isChain) this.keys.includes(key) || this.keys.push(key);
-		return $.enabled && !!str ? run(isChain ? this.keys : [key], str) : str || (isChain ? this : chain([key]));
+		if (txt !== void 0) return $.enabled ? run(isChain ? this.keys : [key], txt+'') : txt+'';
+		return isChain ? this : chain([key]);
 	};
 }
 
