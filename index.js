@@ -1,21 +1,8 @@
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
-function code(open, close) {
-	return {
-		open: `\x1b[${open}m`,
-		close: `\x1b[${close}m`,
-		rgx: new RegExp(`\\x1b\\[${close}m`, 'g')
-	};
-}
-
-function init(key) {
-	return function (txt) {
-		let isChain = !!this.keys;
-		let str = txt == null ? '' : txt+'';
-		if (isChain) this.keys.includes(key) || this.keys.push(key);
-		return $.enabled && !!str ? run(isChain ? this.keys : [key], str) : str || (isChain ? this : chain([key]));
-	};
-}
+const $ = {
+	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
+};
 
 const CODES = {
 	// modifiers
@@ -50,9 +37,22 @@ const CODES = {
 	bgWhite: code(47, 49)
 };
 
-let $ = {
-	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
-};
+function code(open, close) {
+	return {
+		open: `\x1b[${open}m`,
+		close: `\x1b[${close}m`,
+		rgx: new RegExp(`\\x1b\\[${close}m`, 'g')
+	};
+}
+
+function run(arr, str) {
+	let i=0, tmp={};
+	for (; i < arr.length;) {
+		tmp = Reflect.get(CODES, arr[i++]);
+		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
+	}
+	return str;
+}
 
 function chain(keys) {
 	let ctx = { keys };
@@ -88,13 +88,13 @@ function chain(keys) {
 	return ctx;
 }
 
-function run(arr, str) {
-	let i=0, tmp={};
-	for (; i < arr.length;) {
-		tmp = Reflect.get(CODES, arr[i++]);
-		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
-	}
-	return str;
+function init(key) {
+	return function (txt) {
+		let isChain = !!this.keys;
+		let str = txt == null ? '' : txt+'';
+		if (isChain) this.keys.includes(key) || this.keys.push(key);
+		return $.enabled && !!str ? run(isChain ? this.keys : [key], str) : str || (isChain ? this : chain([key]));
+	};
 }
 
 for (let key in CODES) {
