@@ -38,14 +38,9 @@ interface Kleur {
 	inverse: Color;
 	hidden: Color;
 	strikethrough: Color;
+
+	enabled: boolean;
 }
 
 declare let kleur: Kleur;
-export default kleur;
-
-/**
- * Note: ES6 imports are immutable
- * Therefore `kleur.enabled` can only be changed via
- *    import kleur = require('kleur');
- */
-export let enabled: boolean;
+export = kleur;
