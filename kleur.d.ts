@@ -38,9 +38,7 @@ interface Kleur {
 	inverse: Color;
 	hidden: Color;
 	strikethrough: Color;
-
-	enabled: boolean;
 }
 
-declare let kleur: Kleur;
+declare let kleur: Kleur & { enabled: boolean };
 export = kleur;
