@@ -100,6 +100,7 @@ function init(key) {
 for (let key in CODES) {
 	Object.defineProperty($, key, {
 		value: init(key),
+		enumerable: true,
 		writable: false
 	});
 }
