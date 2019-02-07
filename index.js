@@ -1,3 +1,5 @@
+'use strict';
+
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
 const $ = {
@@ -90,7 +92,7 @@ function chain(keys) {
 
 function init(key) {
 	return function (txt) {
-		let isChain = !!this.keys;
+		let isChain = this !== void 0 && !!this.keys;
 		if (isChain) this.keys.includes(key) || this.keys.push(key);
 		if (txt !== void 0) return $.enabled ? run(isChain ? this.keys : [key], txt+'') : txt+'';
 		return isChain ? this : chain([key]);
