@@ -133,19 +133,19 @@ ansi-colors: 1.200ms
 
 ```
 # All Colors
-  ansi-colors x 210,244 ops/sec ±0.36% (94 runs sampled)
-  chalk x 11,999 ops/sec ±2.08% (84 runs sampled)
-  kleur x 442,028 ops/sec ±0.26% (95 runs sampled)
+  ansi-colors  x 199,769 ops/sec ±0.21% (96 runs sampled)
+  chalk        x  12,373 ops/sec ±2.19% (86 runs sampled)
+  kleur        x 444,977 ops/sec ±0.17% (97 runs sampled)
 
 # Stacked colors
-  ansi-colors x 25,117 ops/sec ±0.33% (92 runs sampled)
-  chalk x 2,602 ops/sec ±1.87% (84 runs sampled)
-  kleur x 40,395 ops/sec ±0.41% (95 runs sampled)
+  ansi-colors  x 24,550 ops/sec ±0.33% (94 runs sampled)
+  chalk        x  2,690 ops/sec ±2.32% (84 runs sampled)
+  kleur        x 41,254 ops/sec ±0.13% (99 runs sampled)
 
 # Nested colors
-  ansi-colors x 77,423 ops/sec ±0.26% (95 runs sampled)
-  chalk x 5,705 ops/sec ±1.48% (87 runs sampled)
-  kleur x 114,039 ops/sec ±0.44% (95 runs sampled)
+  ansi-colors  x  73,935 ops/sec ±0.20% (98 runs sampled)
+  chalk        x   5,882 ops/sec ±1.34% (88 runs sampled)
+  kleur        x 115,900 ops/sec ±0.21% (97 runs sampled)
 ```
 
 
