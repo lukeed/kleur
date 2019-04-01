@@ -18,6 +18,7 @@ interface Kleur {
 	cyan: Color;
 	white: Color;
 	gray: Color;
+	grey: Color;
 
 	// Backgrounds
 	bgBlack: Color;

@@ -19,6 +19,7 @@ module.exports = {
   cyan: [36, 39],
   white: [37, 39],
   gray: [90, 39],
+  grey: [90, 39],
 
   // background colors
   bgBlack: [40, 49],
