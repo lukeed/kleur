@@ -27,6 +27,7 @@ const CODES = {
 	cyan: code(36, 39),
 	white: code(37, 39),
 	gray: code(90, 39),
+	grey: code(90, 39),
 
 	// background colors
 	bgBlack: code(40, 49),
@@ -77,6 +78,7 @@ function chain(keys) {
 	ctx.cyan = $.cyan.bind(ctx);
 	ctx.white = $.white.bind(ctx);
 	ctx.gray = $.gray.bind(ctx);
+	ctx.grey = $.grey.bind(ctx);
 
 	ctx.bgBlack = $.bgBlack.bind(ctx);
 	ctx.bgRed = $.bgRed.bind(ctx);
