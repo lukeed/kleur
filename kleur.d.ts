@@ -2,12 +2,12 @@
 // Adapted by: Madhav Varshney <https://github.com/madhavarshney>
 
 // Returns Instance or String (when called with input)
-interface Color {
+export interface Color {
 	(x: string | number): string;
 	(): Kleur;
 }
 
-interface Kleur {
+export interface Kleur {
 	// Colors
 	black: Color;
 	red: Color;
@@ -42,4 +42,4 @@ interface Kleur {
 }
 
 declare let kleur: Kleur & { enabled: boolean };
-export = kleur;
+export default kleur;
