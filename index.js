@@ -53,7 +53,7 @@ function run(arr, str) {
 	for (; i < arr.length;) {
 		tmp = Reflect.get(CODES, arr[i++]);
 		if (str.includes(tmp.close)) {
-		str = tmp.open + str.replace(tmp.rgx, tmp.open) + tmp.close;
+			str = tmp.open + str.replace(tmp.rgx, tmp.close + tmp.open) + tmp.close;
 	}
 	}
 	return str;
