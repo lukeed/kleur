@@ -1,6 +1,6 @@
 {
   "name": "kleur",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "repository": "lukeed/kleur",
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
