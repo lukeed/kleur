@@ -3,64 +3,56 @@
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
 const $ = {
-	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
-};
+	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0',
 
-const CODES = {
 	// modifiers
-	reset: code(0, 0),
-	bold: code(1, 22),
-	dim: code(2, 22),
-	italic: code(3, 23),
-	underline: code(4, 24),
-	inverse: code(7, 27),
-	hidden: code(8, 28),
-	strikethrough: code(9, 29),
+	reset: init(0, 0),
+	bold: init(1, 22),
+	dim: init(2, 22),
+	italic: init(3, 23),
+	underline: init(4, 24),
+	inverse: init(7, 27),
+	hidden: init(8, 28),
+	strikethrough: init(9, 29),
 
 	// colors
-	black: code(30, 39),
-	red: code(31, 39),
-	green: code(32, 39),
-	yellow: code(33, 39),
-	blue: code(34, 39),
-	magenta: code(35, 39),
-	cyan: code(36, 39),
-	white: code(37, 39),
-	gray: code(90, 39),
-	grey: code(90, 39),
+	black: init(30, 39),
+	red: init(31, 39),
+	green: init(32, 39),
+	yellow: init(33, 39),
+	blue: init(34, 39),
+	magenta: init(35, 39),
+	cyan: init(36, 39),
+	white: init(37, 39),
+	gray: init(90, 39),
+	grey: init(90, 39),
 
 	// background colors
-	bgBlack: code(40, 49),
-	bgRed: code(41, 49),
-	bgGreen: code(42, 49),
-	bgYellow: code(43, 49),
-	bgBlue: code(44, 49),
-	bgMagenta: code(45, 49),
-	bgCyan: code(46, 49),
-	bgWhite: code(47, 49)
+	bgBlack: init(40, 49),
+	bgRed: init(41, 49),
+	bgGreen: init(42, 49),
+	bgYellow: init(43, 49),
+	bgBlue: init(44, 49),
+	bgMagenta: init(45, 49),
+	bgCyan: init(46, 49),
+	bgWhite: init(47, 49)
 };
 
-function code(open, close) {
-	return {
-		open: `\x1b[${open}m`,
-		close: `\x1b[${close}m`,
-		rgx: new RegExp(`\\x1b\\[${close}m`, 'g')
-	};
-}
-
 function run(arr, str) {
-	let i=0, tmp={};
-	for (; i < arr.length;) {
-		tmp = Reflect.get(CODES, arr[i++]);
+	let i=0, tmp, beg='', end='';
+	for (; i < arr.length; i++) {
+		tmp = arr[i];
+		beg += tmp.open;
+		end += tmp.close;
 		if (str.includes(tmp.close)) {
-			str = tmp.open + str.replace(tmp.rgx, tmp.close + tmp.open) + tmp.close;
+			str = str.replace(tmp.rgx, tmp.close + tmp.open);
+		}
 	}
-	}
-	return str;
+	return beg + str + end;
 }
 
-function chain(keys) {
-	let ctx = { keys };
+function chain(has, keys) {
+	let ctx = { has, keys };
 
 	ctx.reset = $.reset.bind(ctx);
 	ctx.bold = $.bold.bind(ctx);
@@ -94,21 +86,19 @@ function chain(keys) {
 	return ctx;
 }
 
-function init(key) {
-	return function (txt) {
-		let isChain = this !== void 0 && !!this.keys;
-		if (isChain) this.keys.includes(key) || this.keys.push(key);
-		if (txt !== void 0) return $.enabled ? run(isChain ? this.keys : [key], txt+'') : txt+'';
-		return isChain ? this : chain([key]);
+function init(open, close) {
+	let blk = {
+		open: `\x1b[${open}m`,
+		close: `\x1b[${close}m`,
+		rgx: new RegExp(`\\x1b\\[${close}m`, 'g')
 	};
-}
-
-for (let key in CODES) {
-	Object.defineProperty($, key, {
-		value: init(key),
-		enumerable: true,
-		writable: false
-	});
+	return function (txt) {
+		if (this !== void 0 && this.has !== void 0) {
+			this.has.includes(open) || (this.has.push(open),this.keys.push(blk));
+			return txt === void 0 ? this : $.enabled ? run(this.keys, txt+'') : txt+'';
+		}
+		return txt === void 0 ? chain([open], [blk]) : $.enabled ? run([blk], txt+'') : txt+'';
+	};
 }
 
 module.exports = $;
