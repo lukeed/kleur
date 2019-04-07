@@ -124,28 +124,28 @@ The methods below are grouped by type for legibility purposes only. They each ca
 ### Load time
 
 ```
-chalk: 9.397ms
-kleur: 0.525ms
-ansi-colors: 1.200ms
+chalk       :: 14.543ms
+kleur       ::  0.474ms
+ansi-colors ::  1.923ms
 ```
 
 ### Performance
 
 ```
 # All Colors
-  ansi-colors  x 199,769 ops/sec ±0.21% (96 runs sampled)
-  chalk        x  12,373 ops/sec ±2.19% (86 runs sampled)
-  kleur        x 444,977 ops/sec ±0.17% (97 runs sampled)
+  ansi-colors  x 199,381 ops/sec ±1.04% (96 runs sampled)
+  chalk        x  12,107 ops/sec ±2.07% (87 runs sampled)
+  kleur        x 715,334 ops/sec ±0.30% (93 runs sampled)
 
 # Stacked colors
-  ansi-colors  x 24,550 ops/sec ±0.33% (94 runs sampled)
-  chalk        x  2,690 ops/sec ±2.32% (84 runs sampled)
-  kleur        x 41,254 ops/sec ±0.13% (99 runs sampled)
+  ansi-colors  x 24,494 ops/sec ±1.03% (93 runs sampled)
+  chalk        x  2,650 ops/sec ±2.06% (85 runs sampled)
+  kleur        x 75,798 ops/sec ±0.19% (97 runs sampled)
 
 # Nested colors
-  ansi-colors  x  73,935 ops/sec ±0.20% (98 runs sampled)
-  chalk        x   5,882 ops/sec ±1.34% (88 runs sampled)
-  kleur        x 115,900 ops/sec ±0.21% (97 runs sampled)
+  ansi-colors  x  77,766 ops/sec ±0.32% (94 runs sampled)
+  chalk        x   5,596 ops/sec ±1.85% (86 runs sampled)
+  kleur        x 137,660 ops/sec ±0.31% (93 runs sampled)
 ```
 
 
@@ -164,7 +164,7 @@ c.red().bold().underline('new');
 ```
 > <sup><em>As I work more with Rust, the newer syntax feels so much better & more natural!</em></sup>
 
-If you prefer the old syntax, you may migrate to `ansi-colors`... or suffer the deprecation notice on older `kleur` versions :sweat_smile:
+If you prefer the old syntax, you may migrate to `ansi-colors`. Versions below `kleur@3.0` have been deprecated.
 
 
 ## License
