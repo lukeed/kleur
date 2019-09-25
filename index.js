@@ -27,6 +27,16 @@ const $ = {
 	gray: init(90, 39),
 	grey: init(90, 39),
 
+	// bright colors
+	blackBright: init(90, 39),
+	redBright: init(91, 39),
+	greenBright: init(92, 39),
+	yellowBright: init(93, 39),
+	blueBright: init(94, 39),
+	magentaBright: init(95, 39),
+	cyanBright: init(96, 39),
+	whiteBright: init(97, 39),
+
 	// background colors
 	bgBlack: init(40, 49),
 	bgRed: init(41, 49),
@@ -35,7 +45,17 @@ const $ = {
 	bgBlue: init(44, 49),
 	bgMagenta: init(45, 49),
 	bgCyan: init(46, 49),
-	bgWhite: init(47, 49)
+	bgWhite: init(47, 49),
+
+	// bright background colors
+	bgBlackBright: init(100, 49),
+	bgRedBright: init(101, 49),
+	bgGreenBright: init(102, 49),
+	bgYellowBright: init(103, 49),
+	bgBlueBright: init(104, 49),
+	bgMagentaBright: init(105, 49),
+	bgCyanBright: init(106, 49),
+	bgWhiteBright: init(107, 49)
 };
 
 function run(arr, str) {
@@ -74,6 +94,15 @@ function chain(has, keys) {
 	ctx.gray = $.gray.bind(ctx);
 	ctx.grey = $.grey.bind(ctx);
 
+	ctx.blackBright = $.blackBright.bind(ctx);
+	ctx.redBright = $.redBright.bind(ctx);
+	ctx.greenBright = $.greenBright.bind(ctx);
+	ctx.yellowBright = $.yellowBright.bind(ctx);
+	ctx.blueBright = $.blueBright.bind(ctx);
+	ctx.magentaBright = $.magentaBright.bind(ctx);
+	ctx.cyanBright = $.cyanBright.bind(ctx);
+	ctx.whiteBright = $.whiteBright.bind(ctx);
+
 	ctx.bgBlack = $.bgBlack.bind(ctx);
 	ctx.bgRed = $.bgRed.bind(ctx);
 	ctx.bgGreen = $.bgGreen.bind(ctx);
@@ -82,6 +111,15 @@ function chain(has, keys) {
 	ctx.bgMagenta = $.bgMagenta.bind(ctx);
 	ctx.bgCyan = $.bgCyan.bind(ctx);
 	ctx.bgWhite = $.bgWhite.bind(ctx);
+
+	ctx.bgBlackBright = $.bgBlackBright.bind(ctx);
+	ctx.bgRedBright = $.bgRedBright.bind(ctx);
+	ctx.bgGreenBright = $.bgGreenBright.bind(ctx);
+	ctx.bgYellowBright = $.bgYellowBright.bind(ctx);
+	ctx.bgBlueBright = $.bgBlueBright.bind(ctx);
+	ctx.bgMagentaBright = $.bgMagentaBright.bind(ctx);
+	ctx.bgCyanBright = $.bgCyanBright.bind(ctx);
+	ctx.bgWhiteBright = $.bgWhiteBright.bind(ctx);
 
 	return ctx;
 }
