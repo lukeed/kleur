@@ -19,10 +19,11 @@
   "scripts": {
     "pretest": "rollup -c",
     "test": "tap --no-coverage --no-esm test/*.test.mjs",
+    "test-legacy": "tap --no-coverage test/*.test.mjs",
     "prepublishOnly": "rollup -c"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=6"
   },
   "keywords": [
     "ansi",
