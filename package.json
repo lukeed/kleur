@@ -16,9 +16,7 @@
     "url": "https://lukeed.com"
   },
   "scripts": {
-    "format": "prettier --write '**/*.mjs'",
-    "test": "yarn tap test/*.test.mjs",
-    "tap": "tap --no-coverage --no-esm --node-arg=--experimental-modules"
+    "test": "tap --no-coverage --no-esm --node-arg=--experimental-modules test/*.test.mjs"
   },
   "engines": {
     "node": ">=12"
@@ -38,12 +36,6 @@
   "volta": {
     "node": "14.0.0",
     "yarn": "1.22.4"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "trailingComma": "all",
-    "parser": "babel",
-    "singleQuote": true
   },
   "exports": {
     ".": "./index.mjs"
