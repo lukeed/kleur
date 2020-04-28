@@ -1,42 +1,4 @@
-'use strict';
-
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
-
-const $ = {
-	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0',
-
-	// modifiers
-	reset: init(0, 0),
-	bold: init(1, 22),
-	dim: init(2, 22),
-	italic: init(3, 23),
-	underline: init(4, 24),
-	inverse: init(7, 27),
-	hidden: init(8, 28),
-	strikethrough: init(9, 29),
-
-	// colors
-	black: init(30, 39),
-	red: init(31, 39),
-	green: init(32, 39),
-	yellow: init(33, 39),
-	blue: init(34, 39),
-	magenta: init(35, 39),
-	cyan: init(36, 39),
-	white: init(37, 39),
-	gray: init(90, 39),
-	grey: init(90, 39),
-
-	// background colors
-	bgBlack: init(40, 49),
-	bgRed: init(41, 49),
-	bgGreen: init(42, 49),
-	bgYellow: init(43, 49),
-	bgBlue: init(44, 49),
-	bgMagenta: init(45, 49),
-	bgCyan: init(46, 49),
-	bgWhite: init(47, 49)
-};
 
 function run(arr, str) {
 	let i=0, tmp, beg='', end='';
@@ -101,4 +63,40 @@ function init(open, close) {
 	};
 }
 
-module.exports = $;
+const $ = {
+	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0',
+
+	// modifiers
+	reset: init(0, 0),
+	bold: init(1, 22),
+	dim: init(2, 22),
+	italic: init(3, 23),
+	underline: init(4, 24),
+	inverse: init(7, 27),
+	hidden: init(8, 28),
+	strikethrough: init(9, 29),
+
+	// colors
+	black: init(30, 39),
+	red: init(31, 39),
+	green: init(32, 39),
+	yellow: init(33, 39),
+	blue: init(34, 39),
+	magenta: init(35, 39),
+	cyan: init(36, 39),
+	white: init(37, 39),
+	gray: init(90, 39),
+	grey: init(90, 39),
+
+	// background colors
+	bgBlack: init(40, 49),
+	bgRed: init(41, 49),
+	bgGreen: init(42, 49),
+	bgYellow: init(43, 49),
+	bgBlue: init(44, 49),
+	bgMagenta: init(45, 49),
+	bgCyan: init(46, 49),
+	bgWhite: init(47, 49)
+};
+
+export {$ as default};

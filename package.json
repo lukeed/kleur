@@ -1,23 +1,27 @@
 {
-  "name": "kleur",
+  "name": "@kristoferbaxter/kleur",
   "version": "3.0.3",
   "repository": "lukeed/kleur",
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
   "files": [
-    "*.js",
+    "*.mjs",
     "*.d.ts"
   ],
+  "main": "index.mjs",
+  "module": "index.mjs",
   "author": {
     "name": "Luke Edwards",
     "email": "luke.edwards05@gmail.com",
-    "url": "lukeed.com"
+    "url": "https://lukeed.com"
   },
   "scripts": {
-    "test": "tape test/*.js | tap-spec"
+    "format": "prettier --write '**/*.mjs'",
+    "test": "yarn tap test/*.test.mjs",
+    "tap": "tap --no-coverage --no-esm --node-arg=--experimental-modules"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=12"
   },
   "keywords": [
     "ansi",
@@ -29,7 +33,19 @@
   ],
   "types": "kleur.d.ts",
   "devDependencies": {
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "tap": "14.10.7"
+  },
+  "volta": {
+    "node": "14.0.0",
+    "yarn": "1.22.4"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "all",
+    "parser": "babel",
+    "singleQuote": true
+  },
+  "exports": {
+    ".": "./index.mjs"
   }
 }

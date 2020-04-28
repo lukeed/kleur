@@ -45,7 +45,7 @@ $ npm install --save kleur
 ## Usage
 
 ```js
-const { red, white, blue, bold } = require('kleur');
+import { red, white, blue, bold } from 'kleur';
 
 // basic usage
 red('red text');
@@ -71,7 +71,7 @@ console.log(green().bold().underline('this is a bold green underlined message'))
 ### Nested Methods
 
 ```js
-const { yellow, red, cyan } = require('kleur');
+import { yellow, red, cyan } from 'kleur';
 
 console.log(yellow(`foo ${red().bold('red')} bar ${cyan('cyan')} baz`));
 console.log(yellow('foo ' + red().bold('red') + ' bar ' + cyan('cyan') + ' baz'));
@@ -85,13 +85,10 @@ console.log(yellow('foo ' + red().bold('red') + ' bar ' + cyan('cyan') + ' baz')
 Toggle color support as needed; `kleur` includes simple auto-detection which may not cover all cases.
 
 ```js
-const kleur = require('kleur');
+import kleur from 'kleur';
 
-// manually disable
+// disable with boolean result of right side assignment.
 kleur.enabled = false;
-
-// or use another library to detect support
-kleur.enabled = require('color-support').level;
 
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
