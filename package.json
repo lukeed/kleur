@@ -17,8 +17,7 @@
   },
   "scripts": {
     "format": "prettier --write '**/*.mjs'",
-    "test": "yarn tap test/*.test.mjs",
-    "tap": "tap --no-coverage --no-esm --node-arg=--experimental-modules"
+    "test": "tap --no-coverage --no-esm test/*.test.mjs"
   },
   "engines": {
     "node": ">=12"
@@ -33,6 +32,7 @@
   ],
   "types": "kleur.d.ts",
   "devDependencies": {
+    "prettier": "2.0.5",
     "tap": "14.10.7"
   },
   "volta": {
