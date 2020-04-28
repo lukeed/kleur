@@ -1,1 +1,1 @@
-export const ANSI = x => `\x1b[${x}m`;
+export const ANSI = (x) => `\x1b[${x}m`;

@@ -5,10 +5,11 @@
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
   "files": [
+    "*.js",
     "*.mjs",
     "*.d.ts"
   ],
-  "main": "index.mjs",
+  "main": "index.js",
   "module": "index.mjs",
   "author": {
     "name": "Luke Edwards",
@@ -16,7 +17,9 @@
     "url": "https://lukeed.com"
   },
   "scripts": {
-    "test": "tap --no-coverage --no-esm --node-arg=--experimental-modules test/*.test.mjs"
+    "pretest": "rollup -c",
+    "test": "tap --no-coverage --no-esm test/*.test.mjs",
+    "prepublishOnly": "rollup -c"
   },
   "engines": {
     "node": ">=12"
@@ -31,6 +34,7 @@
   ],
   "types": "kleur.d.ts",
   "devDependencies": {
+    "rollup": "2.7.3",
     "tap": "14.10.7"
   },
   "volta": {

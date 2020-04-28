@@ -1,3 +1,5 @@
+'use strict';
+
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
 function run(arr, str) {
@@ -102,4 +104,4 @@ const $ = {
 	bgWhite: init(47, 49),
 };
 
-export { $ as default };
+module.exports = $;
