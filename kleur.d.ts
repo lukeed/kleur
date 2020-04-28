@@ -42,4 +42,4 @@ declare namespace kleur {
 }
 
 declare let kleur: kleur.Kleur & { enabled: boolean };
-export = kleur;
+export default kleur;
