@@ -17,9 +17,9 @@
     "url": "https://lukeed.com"
   },
   "scripts": {
-    "pretest": "rollup -c",
     "test": "tap --no-coverage --no-esm test/*.test.mjs",
-    "test-legacy": "tap --no-coverage test/*.test.mjs",
+    "pretest-main": "rollup -c",
+    "test-main": "tap --no-coverage test/*.test.mjs",
     "prepublishOnly": "rollup -c"
   },
   "engines": {
