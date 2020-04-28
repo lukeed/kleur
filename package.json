@@ -5,10 +5,11 @@
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "license": "MIT",
   "files": [
+    "*.js",
     "*.mjs",
     "*.d.ts"
   ],
-  "main": "index.mjs",
+  "main": "index.js",
   "module": "index.mjs",
   "author": {
     "name": "Luke Edwards",
@@ -17,7 +18,9 @@
   },
   "scripts": {
     "format": "prettier --write '**/*.mjs'",
-    "test": "tap --no-coverage --no-esm test/*.test.mjs"
+    "pretest": "rollup -c",
+    "test": "tap --no-coverage --no-esm test/*.test.mjs",
+    "prepublishOnly": "rollup -c"
   },
   "engines": {
     "node": ">=12"
@@ -33,6 +36,7 @@
   "types": "kleur.d.ts",
   "devDependencies": {
     "prettier": "2.0.5",
+    "rollup": "2.7.3",
     "tap": "14.10.7"
   },
   "volta": {
@@ -43,7 +47,8 @@
     "printWidth": 120,
     "trailingComma": "all",
     "parser": "babel",
-    "singleQuote": true
+    "singleQuote": true,
+    "useTabs": true
   },
   "exports": {
     ".": "./index.mjs"
