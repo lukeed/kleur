@@ -17,10 +17,9 @@
     "url": "https://lukeed.com"
   },
   "scripts": {
+    "build": "bundt index.mjs --main",
     "test": "tap --no-coverage --no-esm test/*.test.mjs",
-    "pretest-main": "rollup -c",
-    "test-main": "tap --no-coverage test/*.test.mjs",
-    "prepublishOnly": "rollup -c"
+    "test-main": "tap --no-coverage test/*.test.mjs"
   },
   "engines": {
     "node": ">=6"
@@ -35,12 +34,8 @@
   ],
   "types": "kleur.d.ts",
   "devDependencies": {
-    "rollup": "2.7.3",
+    "bundt": "1.0.0",
     "tap": "14.10.7"
-  },
-  "volta": {
-    "node": "14.0.0",
-    "yarn": "1.22.4"
   },
   "exports": {
     ".": "./index.mjs"
