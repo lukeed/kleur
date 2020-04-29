@@ -17,11 +17,11 @@ jobs:
 
     - name: Install
       run: |
-        yarn install
-        yarn global add nyc
+        npm install
+        npm install -g nyc@13
 
     - name: Test w/ Coverage
-      run: nyc --include=index.js yarn test
+      run: nyc --include=index.js npm test
 
     - name: Report
       if: matrix.nodejs >= 12
