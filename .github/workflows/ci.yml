@@ -40,7 +40,7 @@ jobs:
         npm install -g nyc
 
     - name: Test w/ Coverage
-      run: nyc --include=index.js npm test
+      run: nyc --include=index.mjs npm test
 
     - name: Report
       run: |
