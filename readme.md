@@ -6,8 +6,8 @@
   <a href="https://npmjs.org/package/kleur">
     <img src="https://badgen.now.sh/npm/v/kleur" alt="version" />
   </a>
-  <a href="https://travis-ci.org/lukeed/kleur">
-    <img src="https://badgen.now.sh/travis/lukeed/kleur" alt="travis" />
+  <a href="https://github.com/lukeed/kleur/actions?query=workflow%3ACI">
+    <img src="https://github.com/lukeed/kleur/workflows/CI/badge.svg?event=push" alt="CI" />
   </a>
   <a href="https://npmjs.org/package/kleur">
     <img src="https://badgen.now.sh/npm/dm/kleur" alt="downloads" />
