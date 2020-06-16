@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // modifiers
   reset: [0, 0],
   bold: [1, 22],

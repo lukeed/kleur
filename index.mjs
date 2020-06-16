@@ -101,4 +101,4 @@ function init(open, close) {
 	};
 }
 
-module.exports = $;
+export default $;
