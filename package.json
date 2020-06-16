@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "bundt index.mjs --main",
-    "test": "tape -r esm test/*.js | tap-spec"
+    "test": "uvu -r esm -i utils"
   },
   "engines": {
     "node": ">=6"
@@ -41,7 +41,6 @@
   "devDependencies": {
     "bundt": "1.0.0",
     "esm": "3.2.25",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "uvu": "0.0.11"
   }
 }

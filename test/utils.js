@@ -1,4 +1,6 @@
-export default {
+export const ANSI = x => `\x1b[${x}m`;
+
+export const CODES = {
   // modifiers
   reset: [0, 0],
   bold: [1, 22],
