@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nodejs: [6, 8, 10, 12, 14]
+        nodejs: [10, 12, 14]
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
@@ -18,7 +18,7 @@ jobs:
     - name: Install
       run: |
         npm install
-        npm install -g nyc@13
+        npm install -g nyc
 
     - name: Test w/ Coverage
       run: nyc --include=index.mjs npm test
@@ -30,52 +30,3 @@ jobs:
         bash <(curl -s https://codecov.io/bash)
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-  # require:
-  #   name: Node.js v${{ matrix.nodejs }} (require)
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       nodejs: [6, 8, 10, 12, 14]
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: actions/setup-node@v1
-  #     with:
-  #       node-version: ${{ matrix.nodejs }}
-
-  #   - name: Install
-  #     run: yarn install
-
-  #   - name: Build
-  #     run: yarn build
-
-  #   - name: Test
-  #     run: yarn test-main
-
-
-  # import:
-  #   name: Node.js v${{ matrix.nodejs }} (import)
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       nodejs: [14]
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - uses: actions/setup-node@v1
-  #     with:
-  #       node-version: ${{ matrix.nodejs }}
-
-  #   - name: Install
-  #     run: |
-  #       npm install
-  #       npm install -g nyc
-
-  #   - name: Test w/ Coverage
-  #     run: nyc --include=index.mjs npm test
-
-  #   - name: Report
-  #     run: |
-  #       nyc report --reporter=text-lcov > coverage.lcov
-  #       bash <(curl -s https://codecov.io/bash)
-  #     env:
-  #       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

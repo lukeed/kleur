@@ -28,7 +28,7 @@
     "test": "uvu -r esm -i utils"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "keywords": [
     "ansi",
