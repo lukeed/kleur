@@ -18,8 +18,7 @@
   },
   "scripts": {
     "build": "bundt index.mjs --main",
-    "test": "tap --no-coverage --no-esm test/*.test.mjs",
-    "test-main": "tap --no-coverage test/*.test.mjs"
+    "test": "tape test/*.js | tap-spec"
   },
   "engines": {
     "node": ">=6"
@@ -35,7 +34,8 @@
   "types": "kleur.d.ts",
   "devDependencies": {
     "bundt": "1.0.0",
-    "tap": "14.10.7"
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
   },
   "exports": {
     ".": "./index.mjs"
