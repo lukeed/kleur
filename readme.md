@@ -87,8 +87,11 @@ Toggle color support as needed; `kleur` includes simple auto-detection which may
 ```js
 import kleur from 'kleur';
 
-// disable with boolean result of right side assignment.
+// manually disable
 kleur.enabled = false;
+
+// or use another library to detect support
+kleur.enabled = require('color-support').level > 0;
 
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
