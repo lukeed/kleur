@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "bundt index.mjs --main",
-    "test": "tape test/*.js | tap-spec"
+    "test": "tape -r esm test/*.js | tap-spec"
   },
   "engines": {
     "node": ">=6"
@@ -34,6 +34,7 @@
   "types": "kleur.d.ts",
   "devDependencies": {
     "bundt": "1.0.0",
+    "esm": "3.2.25",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
   },

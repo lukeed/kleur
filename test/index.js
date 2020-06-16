@@ -1,6 +1,6 @@
-const test = require('tape');
-const CODES = require('./codes');
-const c = require('..');
+import test from 'tape';
+import CODES from './codes';
+import c from '..';
 
 const ANSI = x => `\x1b[${x}m`;
 
