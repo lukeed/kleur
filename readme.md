@@ -46,21 +46,23 @@ $ npm install --save kleur
 ## Usage
 
 ```js
-import { red, white, blue, bold } from 'kleur';
+import kleur from 'kleur';
 
 // basic usage
-red('red text');
+kleur.red('red text');
 
 // chained methods
-blue().bold().underline('howdy partner');
+kleur.blue().bold().underline('howdy partner');
 
 // nested methods
-bold(`${ white().bgRed('[ERROR]') } ${ red().italic('Something happened')}`);
+kleur.bold(`${ white().bgRed('[ERROR]') } ${ kleur.red().italic('Something happened')}`);
 ```
 
 ### Chained Methods
 
 ```js
+const { bold, green } = require('kleur');
+
 console.log(bold().red('this is a bold red message'));
 console.log(bold().italic('this is a bold italicized message'));
 console.log(bold().yellow().bgRed().italic('this is a bold yellow italicized message'));
@@ -72,7 +74,7 @@ console.log(green().bold().underline('this is a bold green underlined message'))
 ### Nested Methods
 
 ```js
-import { yellow, red, cyan } from 'kleur';
+const { yellow, red, cyan } = require('kleur');
 
 console.log(yellow(`foo ${red().bold('red')} bar ${cyan('cyan')} baz`));
 console.log(yellow('foo ' + red().bold('red') + ' bar ' + cyan('cyan') + ' baz'));
