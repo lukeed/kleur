@@ -97,6 +97,27 @@ kleur.enabled = require('color-support').level > 0;
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
 
+
+## API
+
+Any `kleur` method returns a `String` when invoked with input; otherwise chaining is expected.
+
+> It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
+
+The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
+
+***Colors:***
+> black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray &mdash; grey
+
+***Backgrounds:***
+> bgBlack &mdash; bgRed &mdash; bgGreen &mdash; bgYellow &mdash; bgBlue &mdash; bgMagenta &mdash; bgCyan &mdash; bgWhite
+
+***Modifiers:***
+> reset &mdash; bold &mdash; dim &mdash; italic* &mdash; underline &mdash; inverse &mdash; hidden &mdash; strikethrough*
+
+<sup>* <em>Not widely supported</em></sup>
+
+
 ## Individual Colors
 
 When you only need a few colors, it doesn't make sense to import _all_ of `kleur` because, as small as it is, `kleur` is not treeshakeable, and so most of its code will be doing nothing. In order to fix this, you can import from the `kleur/colors` submodule which _fully_ supports tree-shaking.
@@ -117,6 +138,8 @@ bgWhite(underline(red('red underlined text w/ white background')));
 //~> kleur.bgWhite().underline().red('red underlined text w/ white background');
 ```
 
+> **Note:** All the same [colors, backgrounds, and modifiers](#api) are available.
+
 ***Conditional Support***
 
 The `kleur/colors` submodule also allows you to toggle color support, as needed.<br>
@@ -136,26 +159,6 @@ kleur.$.enabled = require('color-support').level > 0;
 
 console.log(red('I will only be colored red if the terminal supports colors'));
 ```
-
-
-## API
-
-Any `kleur` method returns a `String` when invoked with input; otherwise chaining is expected.
-
-> It's up to the developer to pass the output to destinations like `console.log`, `process.stdout.write`, etc.
-
-The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
-
-***Colors:***
-> black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray &mdash; grey
-
-***Backgrounds:***
-> bgBlack &mdash; bgRed &mdash; bgGreen &mdash; bgYellow &mdash; bgBlue &mdash; bgMagenta &mdash; bgCyan &mdash; bgWhite
-
-***Modifiers:***
-> reset &mdash; bold &mdash; dim &mdash; italic* &mdash; underline &mdash; inverse &mdash; hidden &mdash; strikethrough*
-
-<sup>* <em>Not widely supported</em></sup>
 
 
 ## Benchmarks
