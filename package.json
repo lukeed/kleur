@@ -5,18 +5,22 @@
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "module": "index.mjs",
   "main": "index.js",
-  "license": "MIT",
   "types": "kleur.d.ts",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./index.mjs",
       "require": "./index.js"
+    },
+    "./colors": {
+      "import": "./colors.mjs",
+      "require": "./colors.js"
     }
   },
   "files": [
     "*.d.ts",
-    "index.js",
-    "index.mjs"
+    "colors.*",
+    "index.*"
   ],
   "author": {
     "name": "Luke Edwards",
@@ -24,7 +28,7 @@
     "url": "https://lukeed.com"
   },
   "scripts": {
-    "build": "bundt index.mjs --main",
+    "build": "node build",
     "test": "uvu -r esm -i utils"
   },
   "engines": {
@@ -39,7 +43,6 @@
     "terminal"
   ],
   "devDependencies": {
-    "bundt": "1.0.0",
     "esm": "3.2.25",
     "uvu": "0.0.11"
   }

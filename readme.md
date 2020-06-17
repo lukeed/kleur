@@ -26,6 +26,7 @@
 * Supports [nested](#nested-methods) & [chained](#chained-methods) colors
 * No `String.prototype` modifications
 * Conditional [color support](#conditional-support)
+* [Fully treeshakable](#individual-colors)
 * Familiar [API](#api)
 
 ---
@@ -96,6 +97,46 @@ kleur.enabled = require('color-support').level > 0;
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
 
+## Individual Colors
+
+When you only need a few colors, it doesn't make sense to import _all_ of `kleur` because, as small as it is, `kleur` is not treeshakeable, and so most of its code will be doing nothing. In order to fix this, you can import from the `kleur/colors` submodule which _fully_ supports tree-shaking.
+
+The caveat with this approach is that color functions **are not** chainable~!<br>Each function receives and colorizes its input. You may combine colors, backgrounds, and modifiers by nesting function calls within other functions.
+
+```js
+// or: import * as kleur from 'kleur/colors';
+import { red, underline, bgWhite } from 'kleur/colors';
+
+red('red text');
+//~> kleur.red('red text');
+
+underline(red('red underlined text'));
+//~> kleur.underline().red('red underlined text');
+
+bgWhite(underline(red('red underlined text w/ white background')));
+//~> kleur.bgWhite().underline().red('red underlined text w/ white background');
+```
+
+***Conditional Support***
+
+The `kleur/colors` submodule also allows you to toggle color support, as needed.<br>
+It includes the same initial assumptions as `kleur`, in an attempt to have colors enabled by default.
+
+Unlike `kleur`, this setting exists as `kleur.$.enabled` instead of `kleur.enabled`:
+
+```js
+import * as kleur from 'kleur/colors';
+// or: import { $, red } from 'kleur/colors';
+
+// manually disabled
+kleur.$.enabled = false;
+
+// or use another library to detect support
+kleur.$.enabled = require('color-support').level > 0;
+
+console.log(red('I will only be colored red if the terminal supports colors'));
+```
+
 
 ## API
 
@@ -124,34 +165,38 @@ The methods below are grouped by type for legibility purposes only. They each ca
 ### Load time
 
 ```
-chalk       ::  4.858ms
-kleur       ::  0.482ms
-ansi-colors ::  1.738ms
+chalk        :: 5.303ms
+kleur        :: 0.488ms
+kleur/colors :: 0.369ms
+ansi-colors  :: 1.504ms
 ```
 
 ### Performance
 
 ```
 # All Colors
-  ansi-colors  x 182,395 ops/sec ±0.51% (96 runs sampled)
-  chalk        x 656,387 ops/sec ±0.80% (93 runs sampled)
-  kleur        x 711,729 ops/sec ±0.33% (94 runs sampled)
+  ansi-colors      x 183,435 ops/sec ±0.96% (94 runs sampled)
+  chalk            x 677,371 ops/sec ±0.17% (94 runs sampled)
+  kleur            x 718,990 ops/sec ±0.51% (91 runs sampled)
+  kleur/colors     x 862,421 ops/sec ±0.19% (95 runs sampled)
 
 # Stacked colors
-  ansi-colors  x  23,900 ops/sec ±0.34% (92 runs sampled)
-  chalk        x 306,865 ops/sec ±0.32% (97 runs sampled)
-  kleur        x  76,154 ops/sec ±0.29% (95 runs sampled)
+  ansi-colors      x  23,647 ops/sec ±1.14% (90 runs sampled)
+  chalk            x 332,056 ops/sec ±0.57% (94 runs sampled)
+  kleur            x  75,924 ops/sec ±0.32% (98 runs sampled)
+  kleur/colors     x 103,509 ops/sec ±0.30% (96 runs sampled)
 
 # Nested colors
-  ansi-colors  x  69,508 ops/sec ±0.29% (95 runs sampled)
-  chalk        x 124,142 ops/sec ±0.43% (91 runs sampled)
-  kleur        x 138,659 ops/sec ±0.32% (98 runs sampled)
+  ansi-colors      x  67,278 ops/sec ±0.72% (96 runs sampled)
+  chalk            x 124,868 ops/sec ±0.34% (96 runs sampled)
+  kleur            x 136,444 ops/sec ±0.16% (97 runs sampled)
+  kleur/colors     x 143,956 ops/sec ±0.25% (95 runs sampled)
 ```
 
 
 ## Credits
 
-This project originally forked [Brian Woodward](https://github.com/doowb)'s awesome [`ansi-colors`](https://github.com/doowb/ansi-colors) library.
+This project originally forked [`ansi-colors`](https://github.com/doowb/ansi-colors).
 
 Beginning with `kleur@3.0`, the Chalk-style syntax (magical getter) has been replaced with function calls per key:
 

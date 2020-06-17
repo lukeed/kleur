@@ -1,7 +1,8 @@
 const libs = {
-  chalk: require('chalk'),
-  colors: require('ansi-colors'),
-  kleur: require('..')
+	chalk: require('chalk'),
+	ansi: require('ansi-colors'),
+	colors: require('../colors'),
+	kleur: require('../index')
 };
 
 const color = libs[process.argv[2] || 'kleur'];
