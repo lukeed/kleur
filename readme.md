@@ -31,7 +31,7 @@
 
 ---
 
-As of `v3.0` the Chalk-style syntax (magical getter) is no longer used.<br>If you need or require that syntax, consider using [`ansi-colors`](https://github.com/doowb/ansi-colors), which maintains `chalk` parity.
+As of `v3.0` the Chalk-style syntax (magical getter) is no longer used.<br>Please visit [History](#history) for migration paths supporting that syntax.
 
 ---
 
@@ -199,7 +199,7 @@ ansi-colors  :: 1.504ms
 ```
 
 
-## Credits
+## History
 
 This project originally forked [`ansi-colors`](https://github.com/doowb/ansi-colors).
 
@@ -214,7 +214,7 @@ c.red().bold().underline('new');
 ```
 > <sup><em>As I work more with Rust, the newer syntax feels so much better & more natural!</em></sup>
 
-If you prefer the old syntax, you may migrate to `ansi-colors`. Versions below `kleur@3.0` have been deprecated.
+If you prefer the old syntax, you may migrate to `ansi-colors` or newer `chalk` releases.<br>Versions below `kleur@3.0` have been officially deprecated.
 
 
 ## License
