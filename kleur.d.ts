@@ -47,10 +47,9 @@ declare module 'kleur' {
 }
 
 declare module 'kleur/colors' {
-	function print(input: null): null;
-	function print(input: undefined): undefined;
 	function print(input: string | boolean | number): string;
-	function print(input: void): void;
+	function print(input: undefined | void): undefined;
+	function print(input: null): null;
 	type Colorize = typeof print;
 
 	namespace kleur {
