@@ -22,6 +22,8 @@ jobs:
 
     - name: Test w/ Coverage
       run: c8 npm test
+      env:
+        FORCE_COLOR: 1
 
     - name: Report
       if: matrix.nodejs >= 14
