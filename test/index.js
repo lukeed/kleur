@@ -1,3 +1,5 @@
+process.stdout.isTTY = true;
+
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 import { ANSI, CODES } from './utils';
