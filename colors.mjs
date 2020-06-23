@@ -1,8 +1,8 @@
-const { FORCE_COLOR, GITHUB_ACTIONS, NODE_DISABLE_COLORS, TERM } = process.env;
+const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
 export const $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && (
-		FORCE_COLOR != null && FORCE_COLOR !== '0' || !!GITHUB_ACTIONS || process.stdout.isTTY
+		FORCE_COLOR != null && FORCE_COLOR !== '0' || process.stdout.isTTY
 	)
 }
 
