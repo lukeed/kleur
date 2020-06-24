@@ -7,3 +7,6 @@ faketty() {
 node -p "process.stdout.isTTY"
 node -p "process.stdout.isTTY" | cat
 faketty node -p "process.stdout.isTTY"
+
+node -r esm test/xyz.js
+faketty node -r esm test/xyz.js
