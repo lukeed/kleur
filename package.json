@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "node build",
-    "test": "uvu -r esm -i utils"
+    "test": "uvu -r esm -i utils -i xyz"
   },
   "engines": {
     "node": ">=6"
