@@ -24,7 +24,7 @@ jobs:
       run: c8 npm test
 
     - name: Test w/ Environment
-      run: ./test/env.sh
+      run: npm run build && ./test/env.sh
 
     - name: Report
       if: matrix.nodejs >= 14
