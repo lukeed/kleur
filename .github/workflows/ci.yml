@@ -23,6 +23,9 @@ jobs:
     - name: Test w/ Coverage
       run: c8 npm test
 
+    - name: Test w/ Environment
+      run: ./test/env.sh
+
     - name: Report
       if: matrix.nodejs >= 14
       run: |
