@@ -26,7 +26,7 @@ jobs:
         FORCE_COLOR: 1
 
     - name: Test w/ Environment
-      run: npm run build && ./tests/env.sh
+      run: npm run build && ./test/env.sh
 
     - name: Report
       if: matrix.nodejs >= 14
