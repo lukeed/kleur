@@ -7,11 +7,12 @@ fail() {
 }
 
 colors() {
-	printf "GOT: %s\n" "$1"
+	printf "[COLORS][%s] Got :: %s \n" "$2" "$1"
 	[ "$1" != "foo" ] || fail "$2"
 }
 
 nocolor() {
+	printf "[NOCOLOR][%s] Got :: %s \n" "$2" "$1"
 	[ "$1" == "foo" ] || fail "$2"
 }
 
