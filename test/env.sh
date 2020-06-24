@@ -7,12 +7,12 @@ fail() {
 }
 
 colors() {
-	printf "[COLORS][%s] Got :: %s \n" "$2" "$1"
+	printf "\x1b[2m[DEBUG]\x1b[22m \"%s\" :: %s \n" "$2" "$1"
 	[ "$1" != "foo" ] || fail "$2"
 }
 
 nocolor() {
-	printf "[NOCOLOR][%s] Got :: %s \n" "$2" "$1"
+	printf "\x1b[2m[DEBUG]\x1b[22m \"%s\" :: %s \n" "$2" "$1"
 	[ "$1" == "foo" ] || fail "$2"
 }
 
@@ -27,15 +27,6 @@ nocolor `FORCE_COLOR=0 node -p "require('.').red('foo')"` "FORCE_COLOR=0"
 nocolor `NODE_DISABLE_COLORS=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1;"
 nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
 colors `FORCE_COLOR=1 node -p "require('.').red('foo')"` "FORCE_COLOR=1"
-
-# process.stdout.isTTY = true;
-printf "\nprocess.stdout.isTTY = true;\n"
-colors `node -r esm test/xyz.js` "FORCE_COLOR=?"
-nocolor `FORCE_COLOR=0 node -r esm test/xyz.js` "FORCE_COLOR=0"
-nocolor `NODE_DISABLE_COLORS=1 node -r esm test/xyz.js` "NODE_DISABLE_COLORS=1;"
-nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 node -r esm test/xyz.js` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
-colors `FORCE_COLOR=1 node -r esm test/xyz.js` "FORCE_COLOR=1"
-nocolor `TERM=dumb node -r esm test/xyz.js` "TERM=dumb"
 
 # process.stdout.isTTY = true;
 printf "\n(faketty) process.stdout.isTTY = %s;\n" `faketty node -p "process.stdout.isTTY"`
