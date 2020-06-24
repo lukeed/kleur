@@ -1,3 +1,3 @@
-import kleur from '../index.js';
-import colors from '../colors.js';
+import kleur from '../index.mjs';
+import colors from '../colors.mjs';
 console.log(kleur.red('foo ') + colors.blue('bar'));
