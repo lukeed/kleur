@@ -1,7 +1,9 @@
 const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
 
 export const $ = {
-	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && FORCE_COLOR !== '0'
+	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && (
+		FORCE_COLOR != null && FORCE_COLOR !== '0' || process.stdout.isTTY
+	)
 }
 
 function init(x, y) {
