@@ -7,13 +7,13 @@ fail() {
 }
 
 colors() {
-	printf "\x1b[2m[DEBUG]\x1b[22m \"%s\" :: %s \n" "$2" "$1"
+	printf "\x1b[33m[DEBUG]\x1b[39m \"%s\" :: %s \n" "$2" "$1"
 	[ "$1" != "foo" ] || fail "$2"
 }
 
 nocolor() {
-	printf "\x1b[2m[DEBUG]\x1b[22m \"%s\" :: %s \n" "$2" "$1"
-	[ "$1" == "foo" ] || fail "$2"
+	printf "\x1b[33m[DEBUG]\x1b[39m \"%s\" :: %s \n" "$2" "$1"
+	[[ "$1" =~ foo* ]] || fail "$2"
 }
 
 faketty() {
@@ -24,16 +24,19 @@ faketty() {
 printf "\nprocess.stdout.isTTY = %s;\n" `node -p "process.stdout.isTTY"`
 nocolor `node -p "require('.').red('foo')"` "FORCE_COLOR=?"
 nocolor `FORCE_COLOR=0 node -p "require('.').red('foo')"` "FORCE_COLOR=0"
-nocolor `NODE_DISABLE_COLORS=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1;"
+nocolor `NODE_DISABLE_COLORS=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1"
 nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
 colors `FORCE_COLOR=1 node -p "require('.').red('foo')"` "FORCE_COLOR=1"
+nocolor `TERM=dumb FORCE_COLOR=1 node -p "require('.').red('foo')"` "TERM=dumb; FORCE_COLOR=1"
+nocolor `TERM=dumb node -p "require('.').red('foo')"` "TERM=dumb"
 
 # process.stdout.isTTY = true;
 printf "\n(faketty) process.stdout.isTTY = %s;\n" `faketty node -p "process.stdout.isTTY"`
 colors `faketty node -p "require('.').red('foo')"` "FORCE_COLOR=?"
-nocolor `FORCE_COLOR=0 faketty node -p "require('.').red('foo')"` "FORCE_COLOR=0"
-nocolor `NODE_DISABLE_COLORS=1 faketty node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1;"
+colors `FORCE_COLOR=0 faketty node -p "require('.').red('foo')"` "FORCE_COLOR=0"
+nocolor `NODE_DISABLE_COLORS=1 faketty node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1"
 nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
+nocolor `TERM=dumb FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "TERM=dumb; FORCE_COLOR=1"
 colors `FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "FORCE_COLOR=1"
 nocolor `TERM=dumb node -r esm test/xyz.js` "TERM=dumb"
 
