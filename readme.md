@@ -101,7 +101,7 @@ kleur.enabled = require('color-support').level > 0;
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
 
-> **Important:** Colors will be disabled automatically in non [TTY contexts](https://nodejs.org/api/process.html#process_a_note_on_process_i_o).<br>For example, spawning another process or piping output into another process will disable colorization automatically.<br>To force colors in your piped output, you may do so with the `FORCE_COLOR=1` environment variable:
+> **Important:** <br>Colors will be disabled automatically in non [TTY contexts](https://nodejs.org/api/process.html#process_a_note_on_process_i_o). For example, spawning another process or piping output into another process will disable colorization automatically. To force colors in your piped output, you may do so with the `FORCE_COLOR=1` environment variable:
 
 ```sh
 $ node app.js #=> COLORS
