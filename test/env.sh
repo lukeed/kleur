@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 faketty() {
 	script -qfc "$(printf "%q " "$@")" /dev/null
