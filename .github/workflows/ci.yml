@@ -22,8 +22,6 @@ jobs:
 
     - name: Test w/ Coverage
       run: c8 npm test
-      env:
-        FORCE_COLOR: 1
 
     - name: Test w/ Environment
       run: npm run build && ./test/env.sh
