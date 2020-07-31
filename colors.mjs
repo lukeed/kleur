@@ -1,11 +1,12 @@
-let FORCE_COLOR, NODE_DISABLE_COLORS, TERM;
+let FORCE_COLOR, NODE_DISABLE_COLORS, TERM, isTTY=true;
 if (typeof process !== 'undefined') {
 	({ FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env);
+	isTTY = process.stdout.isTTY;
 }
 
 export const $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && (
-		FORCE_COLOR != null && FORCE_COLOR !== '0' || process.stdout.isTTY
+		FORCE_COLOR != null && FORCE_COLOR !== '0' || isTTY
 	)
 }
 
