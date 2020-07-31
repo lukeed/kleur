@@ -1,4 +1,7 @@
-const { FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env;
+let FORCE_COLOR, NODE_DISABLE_COLORS, TERM;
+if (typeof process !== 'undefined') {
+	({ FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env);
+}
 
 export const $ = {
 	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && (
