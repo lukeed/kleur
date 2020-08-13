@@ -1,13 +1,13 @@
 'use strict';
 
-let FORCE_COLOR, NODE_DISABLE_COLORS, TERM, isTTY=true;
+let FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM, isTTY=true;
 if (typeof process !== 'undefined') {
-	({ FORCE_COLOR, NODE_DISABLE_COLORS, TERM } = process.env);
+	({ FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM } = process.env);
 	isTTY = process.stdout.isTTY;
 }
 
 const $ = {
-	enabled: !NODE_DISABLE_COLORS && TERM !== 'dumb' && (
+	enabled: !NODE_DISABLE_COLORS && !NO_COLOR && TERM !== 'dumb' && (
 		FORCE_COLOR != null && FORCE_COLOR !== '0' || isTTY
 	),
 
