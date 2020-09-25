@@ -29,7 +29,8 @@
   },
   "scripts": {
     "build": "node build",
-    "test": "uvu -r esm -i utils -i xyz"
+    "test": "uvu -r esm -i utils -i xyz",
+    "test:env": "bats ./test/env.bats"
   },
   "engines": {
     "node": ">=6"
@@ -43,6 +44,7 @@
     "terminal"
   ],
   "devDependencies": {
+    "bats": "^1.2.1",
     "esm": "3.2.25",
     "uvu": "0.0.16"
   }
