@@ -7,7 +7,7 @@ if (typeof process !== 'undefined') {
 }
 
 const $ = {
-	enabled: !NODE_DISABLE_COLORS && !NO_COLOR && TERM !== 'dumb' && (
+	enabled: !NODE_DISABLE_COLORS && NO_COLOR === undefined && TERM !== 'dumb' && (
 		FORCE_COLOR != null && FORCE_COLOR !== '0' || isTTY
 	),
 
