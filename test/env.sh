@@ -28,7 +28,9 @@ nocolor `NODE_DISABLE_COLORS=1 node -p "require('.').red('foo')"` "NODE_DISABLE_
 nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
 nocolor `NO_COLOR=1 node -p "require('.').red('foo')"` "NO_COLOR=1"
 nocolor `NO_COLOR=1 FORCE_COLOR=1 node -p "require('.').red('foo')"` "NO_COLOR=1; FORCE_COLOR=1"
+nocolor `NO_COLOR= FORCE_COLOR=1 node -p "require('.').red('foo')"` "NO_COLOR=; FORCE_COLOR=1"
 colors `FORCE_COLOR=1 node -p "require('.').red('foo')"` "FORCE_COLOR=1"
+colors `FORCE_COLOR= node -p "require('.').red('foo')"` "FORCE_COLOR="
 nocolor `TERM=dumb FORCE_COLOR=1 node -p "require('.').red('foo')"` "TERM=dumb; FORCE_COLOR=1"
 nocolor `TERM=dumb node -p "require('.').red('foo')"` "TERM=dumb"
 
@@ -40,8 +42,11 @@ nocolor `NODE_DISABLE_COLORS=1 faketty node -p "require('.').red('foo')"` "NODE_
 nocolor `NODE_DISABLE_COLORS=1 FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "NODE_DISABLE_COLORS=1; FORCE_COLOR=1"
 nocolor `NO_COLOR=1 faketty node -p "require('.').red('foo')"` "NO_COLOR=1"
 nocolor `NO_COLOR=1 FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "NO_COLOR=1; FORCE_COLOR=1"
+nocolor `NO_COLOR= faketty node -p "require('.').red('foo')"` "NO_COLOR="
+nocolor `NO_COLOR= FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "NO_COLOR=; FORCE_COLOR=1"
 nocolor `TERM=dumb FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "TERM=dumb; FORCE_COLOR=1"
 colors `FORCE_COLOR=1 faketty node -p "require('.').red('foo')"` "FORCE_COLOR=1"
+colors `FORCE_COLOR= faketty node -p "require('.').red('foo')"` "FORCE_COLOR="
 nocolor `TERM=dumb node -r esm test/xyz.js` "TERM=dumb"
 
 if [ "$code" == "0" ]; then
