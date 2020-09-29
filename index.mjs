@@ -1,7 +1,7 @@
 'use strict';
 
 let FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM, isTTY=true;
-if (typeof process !== 'undefined') {
+if (typeof process !== 'undefined' && process.stdout) {
 	({ FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM } = process.env);
 	isTTY = process.stdout.isTTY;
 }
