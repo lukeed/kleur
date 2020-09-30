@@ -3,7 +3,7 @@
 let FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM, isTTY=true;
 if (typeof process !== 'undefined') {
 	({ FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM } = process.env);
-	isTTY = process.stdout.isTTY;
+	isTTY = process.stdout && process.stdout.isTTY;
 }
 
 const $ = {
