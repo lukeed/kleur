@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 const ansi = require('ansi-colors');
+const colorette = require('colorette');
 const { Suite } = require('benchmark');
 const colors = require('../colors');
 const kleur = require('../index');
@@ -24,6 +25,9 @@ bench('All Colors')
 	.add('chalk', () => {
 		names.forEach(name => chalk[name]('foo'));
 	})
+	.add('colorette', () => {
+		names.forEach(name => colorette[name]('foo'));
+	})
 	.add('kleur', () => {
 		names.forEach(name => kleur[name]('foo'));
 	})
@@ -40,6 +44,9 @@ bench('Stacked colors')
 	.add('chalk', () => {
 		names.forEach(name => chalk[name].bold.underline.italic('foo'));
 	})
+	.add('colorette', () => {
+		names.forEach(name => colorette[name](colorette.bold(colorette.underline(colorette.italic('foo')))));
+	})
 	.add('kleur', () => {
 		names.forEach(name => kleur[name]().bold().underline().italic('foo'));
 	})
@@ -52,6 +59,7 @@ bench('Stacked colors')
 bench('Nested colors')
 	.add('ansi-colors', () => fixture(ansi))
 	.add('chalk', () => fixture(chalk))
+	.add('colorette', () => fixture(colorette))
 	.add('kleur', () => fixture(kleur))
 	.add('kleur/colors', () => fixture(colors))
 	.run();
