@@ -16,7 +16,7 @@ function init(x, y) {
 
 	return function (txt) {
 		if (!$.enabled || txt == null) return txt;
-		return open + ((''+txt).includes(close) ? txt.replace(rgx, close + open) : txt) + close;
+		return open + (!!~(''+txt).indexOf(close) ? txt.replace(rgx, close + open) : txt) + close;
 	};
 }
 
