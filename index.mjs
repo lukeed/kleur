@@ -50,7 +50,7 @@ function run(arr, str) {
 		tmp = arr[i];
 		beg += tmp.open;
 		end += tmp.close;
-		if (str.includes(tmp.close)) {
+		if (!!~str.indexOf(tmp.close)) {
 			str = str.replace(tmp.rgx, tmp.close + tmp.open);
 		}
 	}
@@ -100,7 +100,7 @@ function init(open, close) {
 	};
 	return function (txt) {
 		if (this !== void 0 && this.has !== void 0) {
-			this.has.includes(open) || (this.has.push(open),this.keys.push(blk));
+			!!~this.has.indexOf(open) || (this.has.push(open),this.keys.push(blk));
 			return txt === void 0 ? this : $.enabled ? run(this.keys, txt+'') : txt+'';
 		}
 		return txt === void 0 ? chain([open], [blk]) : $.enabled ? run([blk], txt+'') : txt+'';
