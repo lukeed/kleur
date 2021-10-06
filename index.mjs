@@ -20,6 +20,7 @@ const $ = {
 	inverse: init(7, 27),
 	hidden: init(8, 28),
 	strikethrough: init(9, 29),
+	blink: init(5, 0),
 
 	// colors
 	black: init(30, 39),
