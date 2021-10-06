@@ -36,3 +36,4 @@ export declare const underline: Colorize;
 export declare const inverse: Colorize;
 export declare const hidden: Colorize;
 export declare const strikethrough: Colorize;
+export declare const blink: Colorize;

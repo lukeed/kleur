@@ -10,6 +10,7 @@ export const CODES = {
   inverse: [7, 27],
   hidden: [8, 28],
   strikethrough: [9, 29],
+  blink: [5, 0],
 
   // colors
   black: [30, 39],

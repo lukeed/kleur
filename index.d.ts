@@ -38,6 +38,7 @@ declare namespace kleur {
 		inverse: Color;
 		hidden: Color;
 		strikethrough: Color;
+		blink: Color;
 	}
 }
 

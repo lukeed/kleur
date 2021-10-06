@@ -29,6 +29,7 @@ export const underline = init(4, 24);
 export const inverse = init(7, 27);
 export const hidden = init(8, 28);
 export const strikethrough = init(9, 29);
+export const blink = init(5, 0);
 
 // colors
 export const black = init(30, 39);
