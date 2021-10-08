@@ -172,6 +172,25 @@ kleur.$.enabled = require('color-support').level > 0;
 console.log(red('I will only be colored red if the terminal supports colors'));
 ```
 
+## Tagged template literal
+You can use [colorize-template](https://github.com/usmanyunusov/colorize-template) as a tagged template literal.
+
+```js
+import { createColorize } from 'colorize-template'
+import kleur from 'kleur'
+
+let colorize = createColorize({
+  ...kleur,
+  success: kleur.green,
+  error: kleur.red
+})
+
+console.log(
+  colorize`Is red {red color} text`,
+  colorize`Run {yellow.bgRed ${'yellow'} test}`,
+  colorize`Is red {error error and success {success green text}}`,
+)
+```
 
 ## Benchmarks
 
