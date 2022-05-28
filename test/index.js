@@ -52,6 +52,17 @@ test('integer', () => {
 	assert.is(kleur.blue(-1), ANSI(blue[0]) + '-1' + ANSI(blue[1]), '~> basic w/ negatives');
 });
 
+test('objects', () => {
+  let { blue } = CODES;
+  assert.is(kleur.blue({ a: 1 }), ANSI(blue[0]) + '{ a: 1 }' + ANSI(blue[1]), '~> basic');
+});
+
+test('undefined', () => {
+  let { blue } = CODES;
+  assert.is(kleur.blue(undefined), ANSI(blue[0]) + 'undefined' + ANSI(blue[1]), '~> basic');
+  assert.is(kleur.blue(null), ANSI(blue[0]) + 'null' + ANSI(blue[1]), '~> basic');
+});
+
 // test('multiline', () => {
 // 	let { blue, bold, red, italic } = CODES;
 // 	assert.is(c.blue('hello\nworld'), ANSI(blue[0]) + 'hello' + ANSI(blue[1]) + '\n' + ANSI(blue[0]) + 'world' + ANSI(blue[1]), '~> basic');

@@ -1,5 +1,7 @@
 'use strict';
 
+import util from 'util';
+
 let FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM, isTTY=true;
 if (typeof process !== 'undefined') {
 	({ FORCE_COLOR, NODE_DISABLE_COLORS, NO_COLOR, TERM } = process.env);
@@ -98,12 +100,13 @@ function init(open, close) {
 		close: `\x1b[${close}m`,
 		rgx: new RegExp(`\\x1b\\[${close}m`, 'g')
 	};
-	return function (txt) {
+	return function (_txt) {
+		const txt = _txt != null && _txt.constructor === String ? _txt : util.inspect(_txt);
 		if (this !== void 0 && this.has !== void 0) {
 			!!~this.has.indexOf(open) || (this.has.push(open),this.keys.push(blk));
-			return txt === void 0 ? this : $.enabled ? run(this.keys, txt+'') : txt+'';
+			return arguments.length == 0 ? this : $.enabled ? run(this.keys, txt+'') : txt+'';
 		}
-		return txt === void 0 ? chain([open], [blk]) : $.enabled ? run([blk], txt+'') : txt+'';
+		return arguments.length == 0 ? chain([open], [blk]) : $.enabled ? run([blk], txt+'') : txt+'';
 	};
 }
 
