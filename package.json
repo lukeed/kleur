@@ -10,11 +10,13 @@
   "exports": {
     ".": {
       "import": "./index.mjs",
-      "require": "./index.js"
+      "require": "./index.js",
+      "types": "./index.d.ts"
     },
     "./colors": {
       "import": "./colors.mjs",
-      "require": "./colors.js"
+      "require": "./colors.js",
+      "types": "./colors.d.ts"
     }
   },
   "files": [
