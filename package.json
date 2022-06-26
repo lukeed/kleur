@@ -15,7 +15,7 @@
     "./colors": {
       "types": "./colors.d.ts",
       "import": "./colors.mjs",
-      "require": "./colors.js",
+      "require": "./colors.js"
     }
   },
   "types": "index.d.ts",
