@@ -4,21 +4,21 @@
   "repository": "lukeed/kleur",
   "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
   "module": "index.mjs",
-  "types": "index.d.ts",
   "main": "index.js",
   "license": "MIT",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./index.mjs",
-      "require": "./index.js",
-      "types": "./index.d.ts"
+      "require": "./index.js"
     },
     "./colors": {
+      "types": "./colors.d.ts",
       "import": "./colors.mjs",
       "require": "./colors.js",
-      "types": "./colors.d.ts"
     }
   },
+  "types": "index.d.ts",
   "files": [
     "*.d.ts",
     "colors.*",
