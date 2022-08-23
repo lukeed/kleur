@@ -19,6 +19,7 @@
 
 <div align="center">The fastest Node.js library for formatting terminal text with ANSI colors~!</div>
 
+
 ## Features
 
 * No dependencies
@@ -35,6 +36,9 @@ As of `v3.0` the Chalk-style syntax (magical getter) is no longer used.<br>Pleas
 
 ---
 
+## Related Docs
+
+[中文文档](https://chinabigpan.github.io/kleur_docs_cn/)
 
 ## Install
 
