@@ -55,7 +55,7 @@ kleur.red('red text');
 kleur.blue().bold().underline('howdy partner');
 
 // nested methods
-kleur.bold(`${ white().bgRed('[ERROR]') } ${ kleur.red().italic('Something happened')}`);
+kleur.bold(`${ kleur.white().bgRed('[ERROR]') } ${ kleur.red().italic('Something happened') }`);
 ```
 
 ### Chained Methods
@@ -76,7 +76,7 @@ console.log(green().bold().underline('this is a bold green underlined message'))
 ```js
 const { yellow, red, cyan } = require('kleur');
 
-console.log(yellow(`foo ${red().bold('red')} bar ${cyan('cyan')} baz`));
+console.log(yellow(`foo ${ red().bold('red') } bar ${ cyan('cyan') } baz`));
 console.log(yellow('foo ' + red().bold('red') + ' bar ' + cyan('cyan') + ' baz'));
 ```
 
