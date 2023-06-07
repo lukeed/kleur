@@ -16,6 +16,7 @@ export declare const cyan: Colorize;
 export declare const white: Colorize;
 export declare const gray: Colorize;
 export declare const grey: Colorize;
+export declare const rgb: (r: number, g: number, b: number) => Colorize;
 
 // Backgrounds
 export declare const bgBlack: Colorize;
@@ -26,6 +27,7 @@ export declare const bgBlue: Colorize;
 export declare const bgMagenta: Colorize;
 export declare const bgCyan: Colorize;
 export declare const bgWhite: Colorize;
+export declare const bgRgb: (r: number, g: number, b: number) => Colorize;
 
 // Modifiers
 export declare const reset: Colorize;

@@ -41,6 +41,7 @@ export const cyan = init(36, 39);
 export const white = init(37, 39);
 export const gray = init(90, 39);
 export const grey = init(90, 39);
+export const rgb = (r, g, b) => init(`38;2;${r};${g};${b}`, 39);
 
 // background colors
 export const bgBlack = init(40, 49);
@@ -51,3 +52,4 @@ export const bgBlue = init(44, 49);
 export const bgMagenta = init(45, 49);
 export const bgCyan = init(46, 49);
 export const bgWhite = init(47, 49);
+export const bgRgb = (r, g, b) => init(`48;2;${r};${g};${b}`, 49);
