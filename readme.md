@@ -91,12 +91,13 @@ Toggle color support as needed; `kleur` includes simple auto-detection which may
 
 ```js
 import kleur from 'kleur';
+import colorSupport from 'color-support';
 
 // manually disable
 kleur.enabled = false;
 
 // or use another library to detect support
-kleur.enabled = require('color-support').level > 0;
+kleur.enabled = colorSupport.level > 0;
 
 console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
@@ -161,15 +162,15 @@ Unlike `kleur`, this setting exists as `kleur.$.enabled` instead of `kleur.enabl
 
 ```js
 import * as kleur from 'kleur/colors';
-// or: import { $, red } from 'kleur/colors';
+import colorSupport from 'color-support';
 
 // manually disabled
 kleur.$.enabled = false;
 
 // or use another library to detect support
-kleur.$.enabled = require('color-support').level > 0;
+kleur.$.enabled = colorSupport.level > 0;
 
-console.log(red('I will only be colored red if the terminal supports colors'));
+console.log(kleur.red('I will only be colored red if the terminal supports colors'));
 ```
 
 
