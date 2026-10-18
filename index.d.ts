@@ -18,6 +18,14 @@ declare namespace kleur {
 		white: Color;
 		gray: Color;
 		grey: Color;
+		brightBlack: Color;
+		brightRed: Color;
+		brightGreen: Color;
+		brightYellow: Color;
+		brightBlue: Color;
+		brightMagenta: Color;
+		brightCyan: Color;
+		brightWhite: Color;
 
 		// Backgrounds
 		bgBlack: Color;
@@ -28,6 +36,14 @@ declare namespace kleur {
 		bgMagenta: Color;
 		bgCyan: Color;
 		bgWhite: Color;
+		bgBrightBlack: Color;
+		bgBrightRed: Color;
+		bgBrightGreen: Color;
+		bgBrightYellow: Color;
+		bgBrightBlue: Color;
+		bgBrightMagenta: Color;
+		bgBrightCyan: Color;
+		bgBrightWhite: Color;
 
 		// Modifiers
 		reset: Color;

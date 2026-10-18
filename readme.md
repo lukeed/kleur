@@ -119,10 +119,12 @@ Any `kleur` method returns a `String` when invoked with input; otherwise chainin
 The methods below are grouped by type for legibility purposes only. They each can be [chained](#chained-methods) or [nested](#nested-methods) with one another.
 
 ***Colors:***
-> black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray &mdash; grey
+> black &mdash; red &mdash; green &mdash; yellow &mdash; blue &mdash; magenta &mdash; cyan &mdash; white &mdash; gray &mdash; grey<br>
+> brightBlack &mdash; brightRed &mdash; brightGreen &mdash; brightYellow &mdash; brightBlue &mdash; brightMagenta &mdash; brightCyan &mdash; brightWhite
 
 ***Backgrounds:***
-> bgBlack &mdash; bgRed &mdash; bgGreen &mdash; bgYellow &mdash; bgBlue &mdash; bgMagenta &mdash; bgCyan &mdash; bgWhite
+> bgBlack &mdash; bgRed &mdash; bgGreen &mdash; bgYellow &mdash; bgBlue &mdash; bgMagenta &mdash; bgCyan &mdash; bgWhite<br>
+> bgBrightBlack &mdash; bgBrightRed &mdash; bgBrightGreen &mdash; bgBrightYellow &mdash; bgBrightBlue &mdash; bgBrightMagenta &mdash; bgBrightCyan &mdash; bgBrightWhite
 
 ***Modifiers:***
 > reset &mdash; bold &mdash; dim &mdash; italic* &mdash; underline &mdash; inverse &mdash; hidden &mdash; strikethrough*
