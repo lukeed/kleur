@@ -22,6 +22,14 @@ export const CODES = {
   white: [37, 39],
   gray: [90, 39],
   grey: [90, 39],
+  brightBlack: [90, 39],
+  brightRed: [91, 39],
+  brightGreen: [92, 39],
+  brightYellow: [93, 39],
+  brightBlue: [94, 39],
+  brightMagenta: [95, 39],
+  brightCyan: [96, 39],
+  brightWhite: [97, 39],
 
   // background colors
   bgBlack: [40, 49],
@@ -32,4 +40,12 @@ export const CODES = {
   bgMagenta: [45, 49],
   bgCyan: [46, 49],
   bgWhite: [47, 49],
+  bgBrightBlack: [100, 49],
+  bgBrightRed: [101, 49],
+  bgBrightGreen: [102, 49],
+  bgBrightYellow: [103, 49],
+  bgBrightBlue: [104, 49],
+  bgBrightMagenta: [105, 49],
+  bgBrightCyan: [106, 49],
+  bgBrightWhite: [107, 49],
 }

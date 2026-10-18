@@ -53,6 +53,11 @@ test('wrappings', () => {
 		kleur.yellow(`foo ${kleur.red(kleur.bold('red'))} bar ${kleur.cyan('cyan')} baz`),
 		ANSI(yellow[0]) + 'foo ' + ANSI(red[0]) + ANSI(bold[0]) + 'red' + ANSI(bold[1]) + ANSI(red[1]) + ANSI(yellow[0]) + ' bar ' + ANSI(cyan[0]) + 'cyan' + ANSI(cyan[1]) + ANSI(yellow[0]) + ' baz' + ANSI(yellow[1])
 	);
+
+	assert.is(
+		kleur.brightRed(`foo ${kleur.brightBlue('bar')} baz`),
+		ANSI(CODES.brightRed[0]) + 'foo ' + ANSI(CODES.brightBlue[0]) + 'bar' + ANSI(CODES.brightBlue[1]) + ANSI(CODES.brightRed[0]) + ' baz' + ANSI(CODES.brightRed[1])
+	);
 });
 
 test('integer', () => {

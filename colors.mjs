@@ -41,6 +41,14 @@ export const cyan = init(36, 39);
 export const white = init(37, 39);
 export const gray = init(90, 39);
 export const grey = init(90, 39);
+export const brightBlack = init(90, 39);
+export const brightRed = init(91, 39);
+export const brightGreen = init(92, 39);
+export const brightYellow = init(93, 39);
+export const brightBlue = init(94, 39);
+export const brightMagenta = init(95, 39);
+export const brightCyan = init(96, 39);
+export const brightWhite = init(97, 39);
 
 // background colors
 export const bgBlack = init(40, 49);
@@ -51,3 +59,11 @@ export const bgBlue = init(44, 49);
 export const bgMagenta = init(45, 49);
 export const bgCyan = init(46, 49);
 export const bgWhite = init(47, 49);
+export const bgBrightBlack = init(100, 49);
+export const bgBrightRed = init(101, 49);
+export const bgBrightGreen = init(102, 49);
+export const bgBrightYellow = init(103, 49);
+export const bgBrightBlue = init(104, 49);
+export const bgBrightMagenta = init(105, 49);
+export const bgBrightCyan = init(106, 49);
+export const bgBrightWhite = init(107, 49);

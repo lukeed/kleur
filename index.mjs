@@ -32,6 +32,14 @@ const $ = {
 	white: init(37, 39),
 	gray: init(90, 39),
 	grey: init(90, 39),
+	brightBlack: init(90, 39),
+	brightRed: init(91, 39),
+	brightGreen: init(92, 39),
+	brightYellow: init(93, 39),
+	brightBlue: init(94, 39),
+	brightMagenta: init(95, 39),
+	brightCyan: init(96, 39),
+	brightWhite: init(97, 39),
 
 	// background colors
 	bgBlack: init(40, 49),
@@ -41,7 +49,15 @@ const $ = {
 	bgBlue: init(44, 49),
 	bgMagenta: init(45, 49),
 	bgCyan: init(46, 49),
-	bgWhite: init(47, 49)
+	bgWhite: init(47, 49),
+	bgBrightBlack: init(100, 49),
+	bgBrightRed: init(101, 49),
+	bgBrightGreen: init(102, 49),
+	bgBrightYellow: init(103, 49),
+	bgBrightBlue: init(104, 49),
+	bgBrightMagenta: init(105, 49),
+	bgBrightCyan: init(106, 49),
+	bgBrightWhite: init(107, 49)
 };
 
 function run(arr, str) {
@@ -79,6 +95,14 @@ function chain(has, keys) {
 	ctx.white = $.white.bind(ctx);
 	ctx.gray = $.gray.bind(ctx);
 	ctx.grey = $.grey.bind(ctx);
+	ctx.brightBlack = $.brightBlack.bind(ctx);
+	ctx.brightRed = $.brightRed.bind(ctx);
+	ctx.brightGreen = $.brightGreen.bind(ctx);
+	ctx.brightYellow = $.brightYellow.bind(ctx);
+	ctx.brightBlue = $.brightBlue.bind(ctx);
+	ctx.brightMagenta = $.brightMagenta.bind(ctx);
+	ctx.brightCyan = $.brightCyan.bind(ctx);
+	ctx.brightWhite = $.brightWhite.bind(ctx);
 
 	ctx.bgBlack = $.bgBlack.bind(ctx);
 	ctx.bgRed = $.bgRed.bind(ctx);
@@ -88,6 +112,14 @@ function chain(has, keys) {
 	ctx.bgMagenta = $.bgMagenta.bind(ctx);
 	ctx.bgCyan = $.bgCyan.bind(ctx);
 	ctx.bgWhite = $.bgWhite.bind(ctx);
+	ctx.bgBrightBlack = $.bgBrightBlack.bind(ctx);
+	ctx.bgBrightRed = $.bgBrightRed.bind(ctx);
+	ctx.bgBrightGreen = $.bgBrightGreen.bind(ctx);
+	ctx.bgBrightYellow = $.bgBrightYellow.bind(ctx);
+	ctx.bgBrightBlue = $.bgBrightBlue.bind(ctx);
+	ctx.bgBrightMagenta = $.bgBrightMagenta.bind(ctx);
+	ctx.bgBrightCyan = $.bgBrightCyan.bind(ctx);
+	ctx.bgBrightWhite = $.bgBrightWhite.bind(ctx);
 
 	return ctx;
 }
