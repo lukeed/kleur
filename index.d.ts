@@ -35,6 +35,7 @@ declare namespace kleur {
 		dim: Color;
 		italic: Color;
 		underline: Color;
+		blink: Color;
 		inverse: Color;
 		hidden: Color;
 		strikethrough: Color;

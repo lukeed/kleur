@@ -17,6 +17,7 @@ const $ = {
 	dim: init(2, 22),
 	italic: init(3, 23),
 	underline: init(4, 24),
+	blink: init(5, 25),
 	inverse: init(7, 27),
 	hidden: init(8, 28),
 	strikethrough: init(9, 29),
@@ -65,6 +66,7 @@ function chain(has, keys) {
 	ctx.dim = $.dim.bind(ctx);
 	ctx.italic = $.italic.bind(ctx);
 	ctx.underline = $.underline.bind(ctx);
+	ctx.blink = $.blink.bind(ctx);
 	ctx.inverse = $.inverse.bind(ctx);
 	ctx.hidden = $.hidden.bind(ctx);
 	ctx.strikethrough = $.strikethrough.bind(ctx);

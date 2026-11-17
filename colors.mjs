@@ -26,6 +26,7 @@ export const bold = init(1, 22);
 export const dim = init(2, 22);
 export const italic = init(3, 23);
 export const underline = init(4, 24);
+export const blink = init(5, 25);
 export const inverse = init(7, 27);
 export const hidden = init(8, 28);
 export const strikethrough = init(9, 29);
