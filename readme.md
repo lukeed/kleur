@@ -125,7 +125,7 @@ The methods below are grouped by type for legibility purposes only. They each ca
 > bgBlack &mdash; bgRed &mdash; bgGreen &mdash; bgYellow &mdash; bgBlue &mdash; bgMagenta &mdash; bgCyan &mdash; bgWhite
 
 ***Modifiers:***
-> reset &mdash; bold &mdash; dim &mdash; italic* &mdash; underline &mdash; inverse &mdash; hidden &mdash; strikethrough*
+> reset &mdash; bold &mdash; dim &mdash; italic* &mdash; underline &mdash; blink* &mdash; inverse &mdash; hidden &mdash; strikethrough*
 
 <sup>* <em>Not widely supported</em></sup>
 

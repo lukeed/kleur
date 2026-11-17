@@ -33,6 +33,7 @@ export declare const bold: Colorize;
 export declare const dim: Colorize;
 export declare const italic: Colorize;
 export declare const underline: Colorize;
+export declare const blink: Colorize;
 export declare const inverse: Colorize;
 export declare const hidden: Colorize;
 export declare const strikethrough: Colorize;
